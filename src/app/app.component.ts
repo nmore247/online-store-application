@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 import { HeaderComponent } from "./header/header/header.component";
 import { FooterComponent } from "./footer/footer/footer.component";
@@ -17,7 +17,8 @@ import { FooterComponent } from "./footer/footer/footer.component";
         FormsModule,
         ReactiveFormsModule,
         HeaderComponent,
-        FooterComponent
+        FooterComponent,RouterModule
+        
     ]
 })
 export class AppComponent {

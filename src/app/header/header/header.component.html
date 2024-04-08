@@ -1,13 +1,12 @@
 <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>{{appTitle}}</span>
-    <span style="margin-left: auto;">
-    <a class="margin links" href="" routerLink>Home</a>
-    <a class="margin links" href="" routerLink>About</a>
-    <a class="margin links" href="" routerLink>Register</a>
-    <a class="margin links" href="" routerLink>Login</a>
-    </span>
-  </mat-toolbar>
-  
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>{{appTitle}}</span>
+  <span style="margin-left: auto;">
+    <a class="margin links" [routerLink]="['/home']">Home</a>
+    <a class="margin links" [routerLink]="['/about']">About</a>
+    <a class="margin links" [routerLink]="['/registration']">Register</a>
+    <a class="margin links" [routerLink]="['/login']">Login</a>
+  </span>
+</mat-toolbar>
