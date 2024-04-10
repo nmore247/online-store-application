@@ -14,6 +14,7 @@ import { CardLayoutComponent } from '../../card-layout/card-layout.component';
 export class HomeComponent implements OnInit {
 
   public products!: IProduct[]
+  public categories!: Set<string>
 
   constructor(private productService: ProductListApplicationService) {
 
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
     this.productService._$productsList.subscribe(data => {
       if (data) {
         this.products = data
+        this.categories = new Set(this.products.map(p => p.category))
       }
     }
     )

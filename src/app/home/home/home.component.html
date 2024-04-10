@@ -1,1 +1,13 @@
-<app-card-layout [products]="products"></app-card-layout>
+<mat-drawer-container autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side" opened="true">
+        <h2>Categories</h2>
+        @for(category of categories; track category){
+            <p><mat-checkbox color="primary">{{category.toUpperCase()}}</mat-checkbox></p>
+        }
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+        <app-card-layout [products]="products"></app-card-layout>
+    </div>
+
+</mat-drawer-container> 

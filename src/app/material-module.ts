@@ -7,6 +7,7 @@ import { MatCommonModule } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 export const materialModules = [
     MatCommonModule,
@@ -17,6 +18,7 @@ export const materialModules = [
     MatFormFieldModule,
     MatSidenavModule,
     MatSlideToggleModule,
-    MatIconModule
+    MatIconModule,
+    MatCheckboxModule
 
   ]
