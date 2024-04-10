@@ -11,5 +11,5 @@ export interface IProduct {
 
 interface IRating {
     rate: number,
-    count: 120
+    count: number
 }
