@@ -1,12 +1,12 @@
 .card-container {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 8px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2px;
 }
 
 
 .product-card {
-  max-width: 250px; /* Set maximum width for the card */
+  max-width: 275px; /* Set maximum width for the card */
   margin: 8px;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .product-card mat-card-actions {
-  display: flex;
+  display: flex;  
   justify-content: space-between; /* Space buttons evenly */
   padding: 0 16px 16px; /* Add padding to the card actions */
 }
