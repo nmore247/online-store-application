@@ -1,0 +1,27 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px;
+}
+
+
+.product-card {
+  max-width: 250px; /* Set maximum width for the card */
+  margin: 8px;
+}
+
+.product-card img {
+  max-height: 200px; /* Set maximum height for the product image */
+  width: 100%; /* Ensure image takes full width */
+  padding: 16px;
+}
+
+.product-card mat-card-content {
+  padding: 16px; /* Add padding to the card content */
+}
+
+.product-card mat-card-actions {
+  display: flex;
+  justify-content: space-between; /* Space buttons evenly */
+  padding: 0 16px 16px; /* Add padding to the card actions */
+}

@@ -1,0 +1,19 @@
+<div class="card-container">
+    @if(products){
+    @for(product of products; track product.id){
+        <mat-card class="product-card">
+            <img mat-card-image src={{product.image}} alt="Product Image">
+            <mat-card-content>
+              <mat-card-title style="font-size: 0.8rem;">{{product.title}}</mat-card-title>
+              <p mat-card-subtitle>{{product.category.toUpperCase()}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="primary">Add to Cart</button>
+              <button mat-raised-button color="accent">Details</button>
+            </mat-card-actions>
+          </mat-card>
+          
+          
+    }
+    }
+</div>
