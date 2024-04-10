@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ProductListService } from './product-list.service';
-import { IProducts } from './product';
+import { IProduct } from './product';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -10,7 +10,7 @@ export class ProductListApplicationService {
 
   constructor(private productService : ProductListService) {}
 
-  private $productsList = new BehaviorSubject<IProducts>(null!)
+  private $productsList = new BehaviorSubject<IProduct[]>(null!)
   public _$productsList = this.$productsList.asObservable()
 
   public fetchAllProducts() {

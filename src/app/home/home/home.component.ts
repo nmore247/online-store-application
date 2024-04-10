@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { materialModules } from '../../material-module';
-import { ProductListService } from '../../products/product-list.service';
 import { ProductListApplicationService } from '../../products/product-list-application.service';
-import { IProducts } from '../../products/product';
+import { IProduct } from '../../products/product';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +12,7 @@ import { IProducts } from '../../products/product';
 })
 export class HomeComponent implements OnInit {
 
-  public products: any = []
+  public products!: IProduct[]
 
   constructor(private productService: ProductListApplicationService) {
 
