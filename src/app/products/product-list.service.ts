@@ -4,15 +4,18 @@ import { Observable } from 'rxjs';
 import { IProduct } from './product';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductListService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  private productsURL = "https://fakestoreapi.com/products"
+  private productsURL = 'https://fakestoreapi.com/products';
 
   public getProducts(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(this.productsURL)
+    return this.http.get<IProduct[]>(this.productsURL);
+  }
+
+  public getProductById(id: number) {
+    return this.http.get<IProduct>(this.productsURL + '/' + id);
   }
 }

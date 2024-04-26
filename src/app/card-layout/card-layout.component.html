@@ -10,11 +10,9 @@
             </mat-card-content>
             <mat-card-actions>
               <button mat-raised-button color="primary">Add to Cart</button>
-              <button mat-raised-button color="accent">Details</button>
+              <button mat-raised-button color="accent" [routerLink]="['/products', product.id]">Details</button>
             </mat-card-actions>
           </mat-card>
-          
-          
     }
     }
 </div>
