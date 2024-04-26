@@ -1,5 +1,13 @@
 <div class="product-container">
   @if(product){
-  <h1>{{ product.title }}</h1>
+  <div style="padding: 1rem;">
+    <h2>{{ product.title }}</h2>
+    <img mat-card-image src="{{ product.image }}" width="500" height="600" alt="Product Image" />
+  </div>
+  <div style="padding: 1rem;">
+    <h2><p>Price : {{ product.price | currency : "USD" }}</p></h2>
+    <p style="font-size: large;">{{ product.description }}</p>
+  </div>
+
   }
 </div>

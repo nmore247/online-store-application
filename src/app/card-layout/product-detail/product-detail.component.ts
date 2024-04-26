@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductListApplicationService } from '../../products/product-list-application.service';
 import { IProduct } from '../../products/product';
-import { ActivatedRoute } from '@angular/router';
-
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { materialModules } from '../../material-module';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [],
+  imports: [materialModules, CommonModule, RouterModule],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss',
 })
