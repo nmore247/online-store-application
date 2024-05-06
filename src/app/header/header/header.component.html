@@ -4,9 +4,12 @@
   </button>
   <span>{{appTitle}}</span>
   <span style="margin-left: auto;">
-    <a class="margin links" [routerLink]="['/home']">Home</a>
+    <a class="margin links" (click)="guardAlert()" [routerLink]="['/home']">Home</a>
     <a class="margin links" [routerLink]="['/about']">About</a>
-    <a class="margin links" [routerLink]="['/registration']">Register</a>
     <a class="margin links" [routerLink]="['/login']">Login</a>
+    @if(this.isLoggedIn){
+      <a class="margin links" [routerLink]="['/login']">Logout</a>
+    }
+    
   </span>
 </mat-toolbar>

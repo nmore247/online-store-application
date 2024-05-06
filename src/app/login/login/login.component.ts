@@ -1,21 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { materialModules } from '../../material-module';
-import { FormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { AuthenticationService } from '../../auth/authentication.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [materialModules, FormsModule],
+  imports: [materialModules, FormsModule, ReactiveFormsModule, RouterModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
-export class LoginComponent {
-  username: string = '';
-  password: string = '';
+export class LoginComponent implements OnInit {
+  public loginForm!: FormGroup;
+  constructor(private authenticationService: AuthenticationService) {}
 
-  onSubmit(): void {
-    // Implement login logic here
-    console.log('Username:', this.username);
-    console.log('Password:', this.password);
+  ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+    });
+  }
+
+  public onSubmit() {
+    this.authenticationService.login(
+      this.loginForm.get('username')!.value,
+      this.loginForm!.get('password')!.value
+    );
   }
 }

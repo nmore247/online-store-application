@@ -20,11 +20,7 @@ export class AuthenticationClient {
     );
   }
 
-  public register(
-    username: string,
-    email: string,
-    password: string
-  ): Observable<string> {
+  public register(username: string,email: string,password: string): Observable<string> {
     return this.http.post(
       environment.apiUrl + '/user/register',
       {

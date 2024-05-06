@@ -8,7 +8,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-
+import { MatInputModule } from '@angular/material/input';
 export const materialModules = [
     MatCommonModule,
     MatToolbarModule,
@@ -19,6 +19,7 @@ export const materialModules = [
     MatSidenavModule,
     MatSlideToggleModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatInputModule
 
   ]
