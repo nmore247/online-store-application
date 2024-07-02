@@ -1,0 +1,9 @@
+<div class="cart">
+  @if(cartData.length === 0){
+    <div class="cart-content">Cart is Empty</div>
+  }
+  
+  @for(product of cartData; track product.id){
+   <p>{{product.title}}</p>
+  }
+</div>

@@ -3,6 +3,7 @@ import { IProduct } from '../products/product';
 import { materialModules } from '../material-module';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { CartService } from '../cart/cart.service';
 
 @Component({
   selector: 'app-card-layout',
@@ -16,7 +17,10 @@ export class CardLayoutComponent {
 
   public product!: IProduct;
 
-  constructor() {}
+  constructor(private cartService: CartService) {}
 
-  
+  public addToCart(id: number){
+    const cartProduct = this.products.filter(product => id == product.id )
+    this.cartService.addToCart(cartProduct[0])
+  }
 }

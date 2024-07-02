@@ -1,15 +1,15 @@
 <div class="card-container">
     @if(products){
     @for(product of products; track product.id){
-        <mat-card class="product-card" [routerLink]="['/products', product.id]">
+        <mat-card class="product-card">
             <img mat-card-image src={{product.image}} alt="Product Image">
             <mat-card-content>
-              <mat-card-title class="product-title" matTooltip="{{product.title}}">{{product.title.slice(0,20)}}...</mat-card-title>
+              <mat-card-title class="product-title" matTooltip="{{product.title}}" [routerLink]="['/products', product.id]">{{product.title.slice(0,20)}}...</mat-card-title>
               <p mat-card-subtitle>{{product.category.toUpperCase()}}</p>
             </mat-card-content>
             <mat-card-actions>
               <span>{{product.price | currency : 'USD'}}</span>
-              <button style="margin-left: auto;" color="warn" mat-raised-button>Add to Cart</button>
+              <button style="margin-left: auto;" color="warn" (click)="addToCart(product.id)" mat-raised-button>Add to Cart</button>
             </mat-card-actions>
           </mat-card>
     }

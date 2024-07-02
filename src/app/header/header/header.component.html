@@ -2,7 +2,7 @@
   <span class="title" (click)="fetchAllProducts()" [routerLink]="['/home']">{{appTitle}}</span>
   <span style="margin-left: auto;">
     <a class="margin links" [routerLink]="['/login']">Login</a>
-    <a class="margin links"><mat-icon style="position: relative; top: 4px;">shopping_cart</mat-icon>Cart</a>
+    <a class="margin links" [routerLink]="['/cart']"><mat-icon style="position: relative; top: 4px;">shopping_cart</mat-icon>Cart ({{cartData.length}})</a>
     <a class="margin links" [routerLink]="['/about']">About</a>
     @if(this.isLoggedIn){
       <a class="margin links" [routerLink]="['/login']">Logout</a>
