@@ -14,7 +14,7 @@ import { CardLayoutComponent } from '../../card-layout/card-layout.component';
 export class HomeComponent implements OnInit {
   public products!: IProduct[];
   public categories: any;
-
+  public selectedCategories: string[] = [];
   constructor(private productService: ProductListApplicationService) {}
 
   ngOnInit() {
@@ -22,17 +22,21 @@ export class HomeComponent implements OnInit {
     this.getAllCategories();
   }
 
-  public filterProductByCategory(category: string, checked: boolean) {
-    if (checked) {
-      const filteredProducts = this.products.filter(
-        (p) => p.category === category
-      );
-      this.products = filteredProducts;
+    public filterItems() {
+      if (this.selectedCategories.length === 0) {
+        return this.products;
+      }
+      return this.products.filter(item => this.selectedCategories.includes(item.category));
     }
-    if (!checked) {
-      this.fetchAllProducts;
+  
+    public onCategoryChange(category: string, checked: boolean) {
+      if (checked) {
+        this.selectedCategories.push(category);
+      } else {
+        this.selectedCategories = this.selectedCategories.filter(c => c !== category);
+      }
     }
-  }
+  
 
   private getAllCategories() {
     this.productService.getAllCategories();

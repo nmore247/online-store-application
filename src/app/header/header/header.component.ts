@@ -14,27 +14,19 @@ import { CartService } from '../../cart/cart.service';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
+  
   appTitle: string = 'Mock Store';
   public isLoggedIn = this.auth.isLoggedIn();
   public products!: IProduct[];
   public cartData!: IProduct[];
-  constructor(
-    private auth: AuthenticationService,
-    private productService: ProductListApplicationService,
-    private cartService: CartService
-  ) {}
+
+  constructor(private auth: AuthenticationService,private cartService: CartService) {}
+
   ngOnInit(): void {
     this.cartService._cartContent.subscribe(data=> {
       this.cartData = data;
     })
   }
 
-  public fetchAllProducts() {
-    this.productService.fetchAllProducts();
-    this.productService._$productsList.subscribe((data) => {
-      if (data) {
-        this.products = data;
-      }
-    });
-  }
+
 }
