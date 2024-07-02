@@ -2,7 +2,7 @@
     <mat-drawer #drawer class="example-sidenav" mode="side" opened="true">
         <h2>Categories</h2>
         @for(category of categories; track category){
-            <p><mat-checkbox color="primary">{{category.toUpperCase()}}</mat-checkbox></p>
+            <mat-checkbox color="primary" (change)="filterProductByCategory(category, $event.checked)">{{category.toUpperCase()}}</mat-checkbox>
         }
     </mat-drawer>
 

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { IProduct } from '../products/product';
 import { materialModules } from '../material-module';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-card-layout',

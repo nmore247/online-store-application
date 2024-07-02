@@ -9,32 +9,46 @@ import { CardLayoutComponent } from '../../card-layout/card-layout.component';
   standalone: true,
   imports: [materialModules, CardLayoutComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
+  public products!: IProduct[];
+  public categories: any;
 
-  public products!: IProduct[]
-  public categories!: Set<string>
-
-  constructor(private productService: ProductListApplicationService) {
-
-
-  }
+  constructor(private productService: ProductListApplicationService) {}
 
   ngOnInit() {
-
-    this.productService.fetchAllProducts()
-
-    this.productService._$productsList.subscribe(data => {
-      if (data) {
-        this.products = data
-        this.categories = new Set(this.products.map(p => p.category))
-      }
-    }
-    )
-
+    this.fetchAllProducts();
+    this.getAllCategories();
   }
 
+  public filterProductByCategory(category: string, checked: boolean) {
+    if (checked) {
+      const filteredProducts = this.products.filter(
+        (p) => p.category === category
+      );
+      this.products = filteredProducts;
+    }
+    if (!checked) {
+      this.fetchAllProducts;
+    }
+  }
 
+  private getAllCategories() {
+    this.productService.getAllCategories();
+    this.productService._allCategories$.subscribe((data) => {
+      if (data) {
+        this.categories = data;
+      }
+    });
+  }
 
+  private fetchAllProducts() {
+    this.productService.fetchAllProducts();
+    this.productService._$productsList.subscribe((data) => {
+      if (data) {
+        this.products = data;
+      }
+    });
+  }
 }

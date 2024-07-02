@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ProductListService } from './product-list.service';
 import { IProduct } from './product';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +14,10 @@ export class ProductListApplicationService {
 
   private selectedProduct$ = new BehaviorSubject<IProduct>(null!);
   public _selectedProduct$ = this.selectedProduct$.asObservable();
+
+  private allCategories$ = new BehaviorSubject([]);
+  public _allCategories$ = this.allCategories$.asObservable();
+
 
   public fetchAllProducts() {
     this.productService.getProducts().subscribe((data) => {
@@ -30,4 +34,13 @@ export class ProductListApplicationService {
       }
     });
   }
+
+  public getAllCategories(){
+    this.productService.getAllCategories().subscribe(data=> {
+      if(data){
+        this.allCategories$.next(data)
+      }
+    })
+  }
+
 }

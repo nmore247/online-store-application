@@ -18,4 +18,8 @@ export class ProductListService {
   public getProductById(id: number) {
     return this.http.get<IProduct>(this.productsURL + '/' + id);
   }
+
+  public getAllCategories(){
+    return this.http.get<any>(this.productsURL + '/' + 'categories');
+  }
 }

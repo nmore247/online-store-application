@@ -1,14 +1,16 @@
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid columns */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Responsive grid columns */
 }
 
 .product-card {
   max-width: 250px; /* Set maximum width for the card */
   margin: 8px;
   &:hover {
-    background-color: #dbdbdb;
-    transform: scale(1.02)
+    transform: scale(1.02);
   }
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -17,6 +19,7 @@
 
 .product-card img {
   max-height: 200px; /* Set maximum height for the product image */
+  min-height: 200px;
   width: 100%; /* Ensure image takes full width */
   padding: 16px;
 }
@@ -26,7 +29,15 @@
 }
 
 .product-card mat-card-actions {
-  display: flex;  
+  display: flex;
   justify-content: space-between; /* Space buttons evenly */
   padding: 0 16px 16px; /* Add padding to the card actions */
+}
+
+.product-title {
+  font-size: 1rem;
+}
+
+.cart-button {
+ margin-left: auto;
 }
