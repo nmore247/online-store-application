@@ -7,7 +7,7 @@
 }
 
 .product-card {
-  max-width: 250px; /* Set maximum width for the card */
+  max-width: 250px; 
   margin: 8px;
   &:hover {
     transform: scale(1.02);
@@ -15,23 +15,25 @@
   cursor: pointer;
   transition: transform 0.2s ease;
   border-radius: 4px;
+
+  img {
+    max-height: 200px; 
+    min-height: 200px;
+    width: 100%;
+    padding: 16px;
+  }
 }
 
-.product-card img {
-  max-height: 200px; /* Set maximum height for the product image */
-  min-height: 200px;
-  width: 100%; /* Ensure image takes full width */
-  padding: 16px;
-}
+
 
 .product-card mat-card-content {
-  padding: 16px; /* Add padding to the card content */
+  padding: 16px; 
 }
 
 .product-card mat-card-actions {
   display: flex;
-  justify-content: space-between; /* Space buttons evenly */
-  padding: 0 16px 16px; /* Add padding to the card actions */
+  justify-content: space-between; 
+  padding: 0 16px 16px;
 }
 
 .product-title {
