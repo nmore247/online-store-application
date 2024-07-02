@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { materialModules } from '../../material-module';
 import { RouterModule } from '@angular/router';
 import { AuthenticationService } from '../../auth/authentication.service';
-import { ProductListApplicationService } from '../../products/product-list-application.service';
 import { IProduct } from '../../products/product';
 import { CartService } from '../../cart/cart.service';
 
@@ -15,7 +14,7 @@ import { CartService } from '../../cart/cart.service';
 })
 export class HeaderComponent implements OnInit {
   
-  appTitle: string = 'Mock Store';
+  appTitle: string = 'Welcome to Online Market';
   public isLoggedIn = this.auth.isLoggedIn();
   public products!: IProduct[];
   public cartData!: IProduct[];

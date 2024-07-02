@@ -9,6 +9,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 export const materialModules = [
     MatCommonModule,
     MatToolbarModule,
@@ -20,6 +23,9 @@ export const materialModules = [
     MatSlideToggleModule,
     MatIconModule,
     MatCheckboxModule,
-    MatInputModule
+    MatInputModule,
+    MatDividerModule,
+    MatBadgeModule,
+    MatSnackBarModule
 
   ]

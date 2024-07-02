@@ -1,9 +1,36 @@
-<div class="cart">
-  @if(cartData.length === 0){
-    <div class="cart-content">Cart is Empty</div>
-  }
-  
-  @for(product of cartData; track product.id){
-   <p>{{product.title}}</p>
-  }
+<div class="cart-container">
+  <div class="order-list">
+    @if(cartData.length === 0){
+    <h2>Your Cart is Empty!</h2>
+    }
+    @if(cartData.length > 0){
+      <h2>Your Shopping Cart</h2>
+        @for(product of cartData; track product.id){
+        <ul>
+          <li>
+            <p>{{ product.title }}</p>
+            <img mat-card-sm-image src="{{ product.image }}" />
+            <p> {{ product.price | currency:'EUR':'symbol' }}</p>
+          </li>
+        </ul>
+        <button style="float: right;" mat-raised-button color="warn">Remove</button>
+        <br>
+        <br>
+        <mat-divider></mat-divider>
+        }
+    }
+  </div>
+  <div class="order-summary">
+    <mat-card>  
+      <mat-card-header>
+        <h3>Order Summary</h3>
+      </mat-card-header>
+      <mat-card-content>
+        Total Items: {{ cartData.length }}
+      </mat-card-content>
+      <mat-card-content>
+        Total Price : {{this.cartTotalAmount | currency:'EUR':'symbol'}}
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

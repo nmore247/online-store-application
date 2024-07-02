@@ -8,7 +8,7 @@
               <p mat-card-subtitle>{{product.category.toUpperCase()}}</p>
             </mat-card-content>
             <mat-card-actions>
-              <span>{{product.price | currency : 'USD'}}</span>
+              <span>{{product.price | currency:'EUR':'symbol' }}</span>
               <button style="margin-left: auto;" color="warn" (click)="addToCart(product.id)" mat-raised-button>Add to Cart</button>
             </mat-card-actions>
           </mat-card>
