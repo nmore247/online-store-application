@@ -18,13 +18,16 @@ export class CardLayoutComponent {
 
   public product!: IProduct;
 
-  constructor(private cartService: CartService, private snackBar: MatSnackBar) {}
+  constructor(
+    private cartService: CartService,
+    private snackBar: MatSnackBar
+  ) {}
 
-  public addToCart(id: number){
-    const cartProduct = this.products.filter(product => id == product.id )
-    this.cartService.addToCart(cartProduct[0])
+  public addToCart(id: number) {
+    const cartProduct = this.products.filter((product) => id == product.id);
+    this.cartService.addToCart(cartProduct[0]);
     this.snackBar.open('Item Added To Cart!', '', {
-      duration: 1000
+      duration: 1000,
     });
   }
 }

@@ -2,7 +2,7 @@
   <span class="title" [routerLink]="['/home']">{{appTitle}}</span>
   <span style="margin-left: auto;">
     <a class="margin links" [routerLink]="['/login']">Login</a>
-    <a class="margin links" [routerLink]="['/cart']"><mat-icon style="position: relative; top: 4px;" matBadge={{cartData.length}} matBadgeColor="warn">shopping_cart</mat-icon></a>
+    <a class="margin links" [routerLink]="['/cart']"><mat-icon style="position: relative; top: 4px;" matTooltip="View Cart" matBadge={{cartData.length}} matBadgeColor="warn">shopping_cart</mat-icon></a>
     <a class="margin links" [routerLink]="['/about']">About</a>
     @if(this.isLoggedIn){
       <a class="margin links" [routerLink]="['/login']">Logout</a>

@@ -22,21 +22,24 @@ export class HomeComponent implements OnInit {
     this.getAllCategories();
   }
 
-    public filterItems() {
-      if (this.selectedCategories.length === 0) {
-        return this.products;
-      }
-      return this.products.filter(item => this.selectedCategories.includes(item.category));
+  public filterItems() {
+    if (this.selectedCategories.length === 0) {
+      return this.products;
     }
-  
-    public onCategoryChange(category: string, checked: boolean) {
-      if (checked) {
-        this.selectedCategories.push(category);
-      } else {
-        this.selectedCategories = this.selectedCategories.filter(c => c !== category);
-      }
+    return this.products.filter((item) =>
+      this.selectedCategories.includes(item.category)
+    );
+  }
+
+  public onCategoryChange(category: string, checked: boolean) {
+    if (checked) {
+      this.selectedCategories.push(category);
+    } else {
+      this.selectedCategories = this.selectedCategories.filter(
+        (c) => c !== category
+      );
     }
-  
+  }
 
   private getAllCategories() {
     this.productService.getAllCategories();

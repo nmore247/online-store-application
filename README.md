@@ -1,4 +1,4 @@
-# MockStore
+## Online-Shop-Anwendung verwendet https://fakestoreapi.com/ zur Anzeige und Verwaltung von Produktdaten
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
 
@@ -25,3 +25,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Stack
+ - Angular v17
+ - Angular Material v17.3.3
+ - Typescript v5.3.2
+
+## Grundlegende Funktionen
+ - Verwendung von Angular HTTP-Methoden zum Abrufen von Daten von https://fakestoreapi.com/ 
+ - Anzeige der Liste aller verfügbaren Produkte
+ - Produkt-Detailansicht anzeigen
+ - Produkte nach Kategorien filtern
+ - Produkt zum Einkaufswagen hinzufügen
+ - Warenkorbansicht mit Bestellzusammenfassung anzeigen

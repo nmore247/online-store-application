@@ -5,10 +5,9 @@
     <img mat-card-image src="{{ product.image }}" width="500" height="600" alt="Product Image" />
   </div>
   <div style="padding: 1rem;">
-    <p style="font-size: large; width: 500px; justify-content: center;">{{ product.description }}</p>
+    <p class="description" >{{ product.description }}</p>
     <h2><p>Price : {{ product.price | currency : "USD" }}</p></h2>
     <button color="warn" mat-raised-button>Add to Cart</button>
   </div>
-
   }
 </div>

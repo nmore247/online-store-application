@@ -4,6 +4,7 @@ import { IProduct } from '../../products/product';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { materialModules } from '../../material-module';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../cart/cart.service';
 @Component({
   selector: 'app-product-detail',
   standalone: true,
