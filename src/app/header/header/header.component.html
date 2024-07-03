@@ -1,9 +1,12 @@
 <mat-toolbar color="primary">
-  <span class="title" [routerLink]="['/home']">{{appTitle}}</span>
+  <span class="title" [routerLink]="['/home']"><img src="../../../assets/images/shopping-logo-svgrepo-com.svg" alt="" height="40px" width="80px"></span>
   <span style="margin-left: auto;">
-    <a class="margin links" [routerLink]="['/login']">Login</a>
-    <a class="margin links" [routerLink]="['/cart']"><mat-icon style="position: relative; top: 4px;" matTooltip="View Cart" matBadge={{cartData.length}} matBadgeColor="warn">shopping_cart</mat-icon></a>
-    <a class="margin links" [routerLink]="['/about']">About</a>
+    <a class="margin links header-icon" [routerLink]="['/login']"><mat-icon matTooltip="Login">account_circle</mat-icon></a>
+    <a class="margin links header-icon" [routerLink]="['/cart']"><mat-icon matTooltip="View Cart" 
+      matBadge={{cartData.length}} 
+      matBadgeColor="warn">shopping_cart</mat-icon>
+    </a>
+    <a class="margin links header-icon" [routerLink]="['/about']"><mat-icon matTooltip="About" >help_clinic</mat-icon></a>
     @if(this.isLoggedIn){
       <a class="margin links" [routerLink]="['/login']">Logout</a>
     }

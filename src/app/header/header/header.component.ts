@@ -14,7 +14,7 @@ import { CartService } from '../../cart/cart.service';
 })
 export class HeaderComponent implements OnInit {
   
-  appTitle: string = 'Welcome to Online Market';
+  appTitle: string = 'Online Markt';
   public isLoggedIn = this.auth.isLoggedIn();
   public products!: IProduct[];
   public cartData!: IProduct[];

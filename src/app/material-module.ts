@@ -6,26 +6,27 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCommonModule } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatIconModule} from '@angular/material/icon';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatListModule} from '@angular/material/list';
 export const materialModules = [
-    MatCommonModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatSidenavModule,
-    MatSlideToggleModule,
-    MatIconModule,
-    MatCheckboxModule,
-    MatInputModule,
-    MatDividerModule,
-    MatBadgeModule,
-    MatSnackBarModule
-
-  ]
+  MatCommonModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatSidenavModule,
+  MatSlideToggleModule,
+  MatIconModule,
+  MatCheckboxModule,
+  MatInputModule,
+  MatDividerModule,
+  MatBadgeModule,
+  MatSnackBarModule,
+  MatListModule
+];

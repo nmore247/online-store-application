@@ -1,13 +1,16 @@
-<mat-drawer-container autosize>
-    <mat-drawer #drawer class="sidenav" mode="side" opened="true">
-        <h2>Categories</h2>
-        @for(category of categories; track category){
-            <mat-checkbox color="primary" (change)="onCategoryChange(category, $event.checked)">{{category.toUpperCase()}}</mat-checkbox>
-        }
-    </mat-drawer>
-
-    <div class="sidenav-content">
-        <app-card-layout [products]="this.filterItems()"></app-card-layout>
-    </div>
-
-</mat-drawer-container> 
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened>
+        <mat-list>
+            <h2 style="margin: 1rem;">Categories</h2>
+            @for(category of categories; track category){
+            <mat-checkbox color="primary"
+                (change)="onCategoryChange(category, $event.checked)">{{category.toUpperCase()}}</mat-checkbox>
+            }
+        </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <app-card-layout [products]="this.filterItems()"></app-card-layout>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

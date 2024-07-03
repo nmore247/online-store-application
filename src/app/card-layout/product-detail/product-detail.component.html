@@ -7,7 +7,7 @@
   <div style="padding: 1rem;">
     <p class="description" >{{ product.description }}</p>
     <h2><p>Price : {{ product.price | currency : "EUR" : "symbol" }}</p></h2>
-    <button color="warn" mat-raised-button>Add to Cart</button>
+    <button color="warn" mat-raised-button (click)="addToCart(product.id)">Add to Cart</button>
   </div>
   }
 </div>
