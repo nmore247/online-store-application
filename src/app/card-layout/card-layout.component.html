@@ -3,17 +3,13 @@
   <mat-card class="product-card">
     <img mat-card-image src="{{ product.image }}" alt="Product Image" />
     <mat-card-content>
-      <mat-card-title class="product-title" matTooltip="{{ product.title }}" 
-      [routerLink]="['/products', product.id]">{{ product.title.slice(0, 20) }}...</mat-card-title>
+      <mat-card-title class="product-title" matTooltip="{{ product.title }}" [routerLink]="['/products', product.id]">{{
+        product.title.slice(0, 20) }}...</mat-card-title>
       <p mat-card-subtitle>{{ product.category.toUpperCase() }}</p>
     </mat-card-content>
     <mat-card-actions>
       <span>{{ product.price | currency : "EUR" : "symbol" }}</span>
-      <button
-        class="cart-button "
-        color="warn"
-        (click)="addToCart(product.id)"
-        mat-raised-button>Add to Cart</button>
+      <button class="cart-button " color="warn" (click)="addToCart(product.id)" mat-raised-button>Add to Cart</button>
     </mat-card-actions>
   </mat-card>
   } }
