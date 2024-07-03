@@ -9,8 +9,8 @@ import { BehaviorSubject, map } from 'rxjs';
 export class ProductListApplicationService {
   constructor(private productService: ProductListService) {}
 
-  private $productsList = new BehaviorSubject<IProduct[]>(null!);
-  public _$productsList = this.$productsList.asObservable();
+  private productsList$ = new BehaviorSubject<IProduct[]>(null!);
+  public _productsList$ = this.productsList$.asObservable();
 
   private selectedProduct$ = new BehaviorSubject<IProduct>(null!);
   public _selectedProduct$ = this.selectedProduct$.asObservable();
@@ -22,7 +22,7 @@ export class ProductListApplicationService {
   public fetchAllProducts() {
     this.productService.getProducts().subscribe((data) => {
       if (data) {
-        this.$productsList.next(data);
+        this.productsList$.next(data);
       }
     });
   }

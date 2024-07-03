@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
   constructor(private auth: AuthenticationService,private cartService: CartService) {}
 
   ngOnInit(): void {
-    this.cartService._cartContent.subscribe(data=> {
+    this.cartService._cartContent$.subscribe(data=> {
       this.cartData = data;
     })
   }

@@ -7,18 +7,30 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
   constructor() {}
-  private cartContent = new BehaviorSubject<IProduct[]>([]);
-  public _cartContent = this.cartContent.asObservable();
+  private cartItems! : IProduct[];
+  private cartContent$ = new BehaviorSubject<IProduct[]>([]);
+  public _cartContent$ = this.cartContent$.asObservable();
 
-  public addToCart(product : IProduct) {
-    this.cartContent.value.push(product);
-    this.cartContent.next(this.cartContent.value);
+
+  public addToCart(product: IProduct) {
+    this.cartItems = this.cartContent$.value;
+    this.cartItems.push(product);
+    this.cartContent$.next(this.cartContent$.value);
   }
 
   public removeFromCart(id: number) {
-    if (this.cartContent.value.length > 0) {
-      this.cartContent.value.filter((product) => id !== product.id);
-      this.cartContent.next(this.cartContent.value);
+    this.cartItems = this.cartContent$.value;
+    if (this.cartItems.length > 0) {
+      this.cartItems = this.cartItems.filter((product) => product.id !== id);
+      this.cartContent$.next(this.cartItems);
+    }
+  }
+
+  public clearCart(): void {
+    this.cartItems = this.cartContent$.value;
+    if (this.cartItems.length > 0) {
+      this.cartItems.length = 0;
+      this.cartContent$.next(this.cartContent$.value);
     }
   }
 }

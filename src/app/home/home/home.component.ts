@@ -13,7 +13,7 @@ import { CardLayoutComponent } from '../../card-layout/card-layout.component';
 })
 export class HomeComponent implements OnInit {
   public products!: IProduct[];
-  public categories: any;
+  public categories!: string[];
   public selectedCategories: string[] = [];
   constructor(private productService: ProductListApplicationService) {}
 
@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
 
   private fetchAllProducts() {
     this.productService.fetchAllProducts();
-    this.productService._$productsList.subscribe((data) => {
+    this.productService._productsList$.subscribe((data) => {
       if (data) {
         this.products = data;
       }
