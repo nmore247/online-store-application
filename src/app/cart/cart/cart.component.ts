@@ -20,8 +20,13 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartService._cartContent.subscribe((data) => {
-      this.cartData = data;
-      this.cartTotalAmount = parseFloat(this.cartData.map((data) => data.price).reduce((a, b) => a + b).toFixed(2));
+      if(data){
+        this.cartData = data;
+      }
+      if(this.cartData.length > 0){
+        this.cartTotalAmount = parseFloat(this.cartData.map((data) => data.price).reduce((a, b) => a + b).toFixed(2));
+      }
+     
     });
   }
 }
