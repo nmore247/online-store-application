@@ -23,3 +23,36 @@
   position: relative;
   top: 4px;
 }
+
+.cart-item {
+  display: flex;
+}
+
+.cart-item-delete-button{
+  margin-left: auto;
+  margin-top: 1rem;
+}
+
+.cart-item-image{
+  padding: 4px;
+}
+
+
+p {
+  font-size: small;
+}
+
+.scrollable-menu {
+  max-height: 200px;  /* Adjust the height as needed */
+  overflow-y: auto;
+}
+
+.spacer {
+  margin-left: 1rem;
+}
+
+#open-cart-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

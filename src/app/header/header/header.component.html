@@ -1,15 +1,54 @@
 <mat-toolbar color="primary">
-  <span class="title" [routerLink]="['/home']"><img src="../../../assets/images/shopping-logo-svgrepo-com.svg" alt="" height="40px" width="80px"></span>
+  <span class="title" [routerLink]="['/home']"><img src="../../../assets/images/shopping-logo-svgrepo-com.svg" alt=""
+      height="40px" width="80px"></span>
   <span style="margin-left: auto;">
-    <a class="margin links header-icon" [routerLink]="['/login']"><mat-icon matTooltip="Login">account_circle</mat-icon></a>
-    <a class="margin links header-icon" [routerLink]="['/cart']"><mat-icon matTooltip="View Cart" 
-      matBadge={{cartData.length}} 
-      matBadgeColor="warn">shopping_cart</mat-icon>
+    <a class="margin links header-icon" [routerLink]="['/login']"><mat-icon
+        matTooltip="Login">account_circle</mat-icon></a>
+    <a class="margin links header-icon"><mat-icon matTooltip="View Cart" [matMenuTriggerFor]="cartItemsMenu"
+        matBadge={{cartData.length}} matBadgeColor="warn">shopping_cart</mat-icon>
     </a>
-    <a class="margin links header-icon" [routerLink]="['/about']"><mat-icon matTooltip="About" >help_clinic</mat-icon></a>
+    <a class="margin links header-icon" [routerLink]="['/about']"><mat-icon
+        matTooltip="About">help_clinic</mat-icon></a>
     @if(this.isLoggedIn){
-      <a class="margin links" [routerLink]="['/login']">Logout</a>
+    <a class="margin links" [routerLink]="['/login']">Logout</a>
     }
-    
+
   </span>
 </mat-toolbar>
+
+
+<mat-menu #cartItemsMenu="matMenu" yPosition="below" class="scrollable-menu">
+  @if(cartData.length === 0){
+  <p style="padding: 2px;">Cart is Empty</p>
+  }
+  @if(cartData.length > 0){
+  @for(cartItem of cartData; track cartItem.id){
+
+  <button mat-menu-item>
+    <div class="cart-item">
+      <div><img class="cart-item-image" mat-card-sm-image src="{{ cartItem.image }}" /></div>
+      <div class="spacer">
+        <p>{{ cartItem.title }}</p>
+        <p> {{ cartItem.price | currency:'EUR':'symbol' }}</p>
+      </div>
+      <div id="item-delete">
+        <button class="cart-item-delete-button" mat-icon-button color="warn">
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+      </div>
+    </div>
+  </button>
+  }
+  <div>
+    <div class="cart-item">
+      <div style="padding: 2px;"><p>Total Items : {{cartData.length}}</p></div>
+      <hr>
+      <div style="padding: 2px;"><p>Total Amount : 100</p></div>
+    </div>
+  </div>
+  <div id="open-cart-button">
+    <button mat-raised-button color="primary" [routerLink]="['/cart']">Open Cart</button>
+  </div>
+  }
+
+</mat-menu>

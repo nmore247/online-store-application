@@ -1,14 +1,13 @@
 .cart-container {
   padding: 1rem;
   display: flex;
-
 }
 
 .card-spacer {
   margin-bottom: 0.8rem;
 }
 
-.spacer{
+.spacer {
   margin-left: 1rem;
 }
 
@@ -22,7 +21,7 @@
   padding: 1rem;
 }
 
-.order{
+.order {
   background: rgba(173, 216, 230, 0.5);
   width: 100%;
   display: flex;
@@ -40,16 +39,16 @@ ul {
   display: flex;
 }
 
-.cart-item-delete-button{
+.cart-item-delete-button {
   margin-left: auto;
   margin-top: 1rem;
 }
 
-.cart-item-image{
+.cart-item-image {
   padding: 4px;
 }
 
-.summary-buttons{
+.summary-buttons {
   display: flex;
   margin: 4px;
   padding: 4px;
