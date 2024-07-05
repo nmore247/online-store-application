@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { materialModules } from '../../material-module';
 import { RouterModule } from '@angular/router';
-import { AuthenticationService } from '../../auth/authentication.service';
 import { IProduct } from '../../products/product';
 import { CartService } from '../../cart/cart.service';
 import { CommonModule } from '@angular/common';
@@ -15,13 +14,11 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
   
-  public isLoggedIn = this.auth.isLoggedIn();
-
   public products!: IProduct[];
   public cartData!: IProduct[];
   public cartTotalAmount : number = 0;
 
-  constructor(private auth: AuthenticationService,private cartService: CartService) {}
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
     this.initializeCartData();
