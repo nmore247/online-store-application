@@ -2,11 +2,18 @@
   <span class="title" [routerLink]="['/home']"><img src="../../../assets/images/shopping-logo-svgrepo-com.svg" alt=""
       height="40px" width="80px"></span>
   <span style="margin-left: auto;">
+    @if(authService.currentUserSig() === null){
+    <span>You are Logged out</span>
     <a class="margin links header-icon" [routerLink]="['/login']"><mat-icon
         matTooltip="Login">account_circle</mat-icon></a>
+    }
+    @if(authService.currentUserSig()){
+    <span>Welcome! {{ authService.currentUserSig()?.username?.toLocaleUpperCase() }}</span>
+    <a class="margin links header-icon" (click)="logout()"><mat-icon matTooltip="Logout">logout</mat-icon></a>
     <a class="margin links header-icon"><mat-icon matTooltip="View Cart" [matMenuTriggerFor]="cartItemsMenu"
         matBadge={{cartData.length}} matBadgeColor="warn">shopping_cart</mat-icon>
     </a>
+    }
   </span>
 </mat-toolbar>
 
@@ -35,9 +42,13 @@
   }
   <div>
     <div class="cart-item">
-      <div style="padding: 2px;"><p>Total Items : {{cartData.length}}</p></div>
+      <div style="padding: 2px;">
+        <p>Total Items : {{cartData.length}}</p>
+      </div>
       <hr>
-      <div style="padding: 2px;"><p>Total Amount : 100</p></div>
+      <div style="padding: 2px;">
+        <p>Total Amount : 100</p>
+      </div>
     </div>
   </div>
   <div id="open-cart-button">
