@@ -33,4 +33,13 @@ export class CartService {
       this.cartContent$.next(this.cartContent$.value);
     }
   }
+
+  public calculateCartTotal(productList: IProduct[]): number {
+    return parseFloat(
+      productList
+        .map((data) => data.price)
+        .reduce((a, b) => a + b)
+        .toFixed(2)
+    );
+  }
 }

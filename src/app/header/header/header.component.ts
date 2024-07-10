@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { IProduct } from '../../products/product';
 import { CartService } from '../../cart/cart.service';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+
 import { AuthenticationService } from '../../authentication/auth-service/authentication.service';
 
 @Component({
@@ -21,7 +21,6 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private http: HttpClient,
     public authService: AuthenticationService
   ) { }
 
@@ -35,19 +34,12 @@ export class HeaderComponent implements OnInit {
         this.cartData = data;
       }
       if (this.cartData.length > 0) {
-        this.cartTotalAmount = this.calculateCartTotal(this.cartData);
+        this.cartTotalAmount = this.cartService.calculateCartTotal(this.cartData);
       }
     });
   }
 
-  private calculateCartTotal(productList: IProduct[]): number {
-    return parseFloat(
-      productList
-        .map((data) => data.price)
-        .reduce((a, b) => a + b)
-        .toFixed(2)
-    );
-  }
+
 
   public logout(): void {
     localStorage.setItem('token', '');

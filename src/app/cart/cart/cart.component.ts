@@ -28,17 +28,13 @@ export class CartComponent implements OnInit {
 
   }
 
-  private calculateCartTotal(productList: IProduct[]): number{
-    return parseFloat(productList.map((data) => data.price).reduce((a, b) => a + b).toFixed(2));
-  }
-
   private initializeCartData(){
     this.cartService._cartContent$.subscribe((data) => {
       if(data){
         this.cartData = data;
       }
       if(this.cartData.length > 0){
-        this.cartTotalAmount = this.calculateCartTotal(this.cartData)
+        this.cartTotalAmount = this.cartService.calculateCartTotal(this.cartData)
       }
      
     });
