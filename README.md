@@ -38,3 +38,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  - Produkte nach Kategorien filtern
  - Produkt zum Einkaufswagen hinzufügen
  - Warenkorbansicht mit Bestellzusammenfassung anzeigen
+ - Eine einfache Anmeldung und Login Funktion
