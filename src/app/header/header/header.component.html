@@ -2,15 +2,14 @@
   <span class="title" [routerLink]="['/home']"><img src="../../../assets/images/shopping-logo-svgrepo-com.svg" alt=""
       height="40px" width="80px"></span>
   <span style="margin-left: auto;">
-    @if(authService.currentUserSig() === null){
-    <span>You are Logged out</span>
+    @if(authService.currentUserSig() === null || authService.currentUserSig() === undefined){
     <a class="margin links header-icon" [routerLink]="['/login']"><mat-icon
         matTooltip="Login">account_circle</mat-icon></a>
     }
     @if(authService.currentUserSig()){
     <span>Welcome! {{ authService.currentUserSig()?.username?.toLocaleUpperCase() }}</span>
     <a class="margin links header-icon" (click)="logout()"><mat-icon matTooltip="Logout">logout</mat-icon></a>
-    <a class="margin links header-icon"><mat-icon matTooltip="View Cart" [matMenuTriggerFor]="cartItemsMenu"
+    <a class="margin links header-icon"><mat-icon matTooltip="View Cart" [matMenuTriggerFor]="cartItemsMenu" aria-hidden="false"
         matBadge={{cartData.length}} matBadgeColor="warn">shopping_cart</mat-icon>
     </a>
     }

@@ -6,8 +6,6 @@ import { CartService } from '../../cart/cart.service';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from '../../authentication/auth-service/authentication.service';
-import { UserInterface } from '../../authentication/User';
-import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -29,16 +27,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeCartData();
-    this.http.get<{ user: UserInterface }>(environment.userURL)
-      .subscribe({
-        next: (response) => {
-          console.log('response', response);
-          this.authService.currentUserSig.set(response?.user);
-        },
-        error: () => {
-          this.authService.currentUserSig.set(null);
-        },
-      });
   }
 
   private initializeCartData() {
@@ -62,7 +50,6 @@ export class HeaderComponent implements OnInit {
   }
 
   public logout(): void {
-    console.log('logout');
     localStorage.setItem('token', '');
     this.authService.currentUserSig.set(null);
   }
