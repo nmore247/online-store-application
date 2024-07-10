@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { materialModules } from '../../material-module';
 import { RouterModule } from '@angular/router';
-import { AuthenticationService } from '../../auth/authentication.service';
 import { IProduct } from '../../products/product';
 import { CartService } from '../../cart/cart.service';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { AuthenticationService } from '../../authentication/auth-service/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -14,33 +15,42 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
-  
-  public isLoggedIn = this.auth.isLoggedIn();
-
   public products!: IProduct[];
   public cartData!: IProduct[];
-  public cartTotalAmount : number = 0;
+  public cartTotalAmount: number = 0;
 
-  constructor(private auth: AuthenticationService,private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private http: HttpClient,
+    public authService: AuthenticationService
+  ) { }
 
   ngOnInit(): void {
     this.initializeCartData();
   }
 
-  private initializeCartData(){
+  private initializeCartData() {
     this.cartService._cartContent$.subscribe((data) => {
-      if(data){
+      if (data) {
         this.cartData = data;
       }
-      if(this.cartData.length > 0){
-        this.cartTotalAmount = this.calculateCartTotal(this.cartData)
+      if (this.cartData.length > 0) {
+        this.cartTotalAmount = this.calculateCartTotal(this.cartData);
       }
-     
     });
   }
 
-  private calculateCartTotal(productList: IProduct[]): number{
-    return parseFloat(productList.map((data) => data.price).reduce((a, b) => a + b).toFixed(2));
+  private calculateCartTotal(productList: IProduct[]): number {
+    return parseFloat(
+      productList
+        .map((data) => data.price)
+        .reduce((a, b) => a + b)
+        .toFixed(2)
+    );
   }
 
+  public logout(): void {
+    localStorage.setItem('token', '');
+    this.authService.currentUserSig.set(null);
+  }
 }
