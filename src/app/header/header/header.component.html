@@ -19,7 +19,7 @@
 
 <mat-menu #cartItemsMenu="matMenu" yPosition="below" class="scrollable-menu">
   @if(cartData.length === 0){
-  <p style="padding: 2px;">Cart is Empty</p>
+    <div class="cart-menu-text"><p>Cart is Empty</p></div>
   }
   @if(cartData.length > 0){
   @for(cartItem of cartData; track cartItem.id){
@@ -40,14 +40,8 @@
   </button>
   }
   <div>
-    <div class="cart-item">
-      <div style="padding: 2px;">
-        <p>Total Items : {{cartData.length}}</p>
-      </div>
-      <hr>
-      <div style="padding: 2px;">
-        <p>Total Amount : {{this.cartTotalAmount}}</p>
-      </div>
+    <div style="margin-left: 22px; font-weight: bold;">
+        <p>Total Amount : {{this.cartTotalAmount | currency:'EUR':'symbol'}}</p>
     </div>
   </div>
   <div id="open-cart-button">
