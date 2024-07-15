@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { materialModules } from '../../material-module';
 import { IProduct } from '../../products/product';
-import { AuthenticationService } from '../../authentication/auth-service/authentication.service';
 import { CartService } from '../../cart/cart.service';
 
 @Component({

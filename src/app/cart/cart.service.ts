@@ -42,4 +42,5 @@ export class CartService {
         .toFixed(2)
     );
   }
+  
 }

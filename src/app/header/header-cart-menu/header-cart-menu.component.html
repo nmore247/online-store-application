@@ -16,7 +16,7 @@
             </div>
             <div id="item-delete">
                 <button class="cart-item-delete-button" mat-icon-button color="warn"
-                    (click)="removeCartItem(cartItem.id)">
+                    (click)="removeCartItem(cartItem.id); $event.stopPropagation()">
                     <mat-icon>delete_forever</mat-icon>
                 </button>
             </div>

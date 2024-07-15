@@ -9,8 +9,8 @@
     @if(authService.currentUserSig()){
     <span>Welcome! {{ authService.currentUserSig()?.username?.toLocaleUpperCase() }}</span>
     <a class="margin links header-icon" (click)="logout()"><mat-icon matTooltip="Logout">logout</mat-icon></a>
-    <a class="margin links header-icon"><mat-icon matTooltip="View Cart" [matMenuTriggerFor]="cartItemsMenu" aria-hidden="false"
-        matBadge={{cartData.length}} matBadgeColor="warn">shopping_cart</mat-icon>
+    <a class="margin links header-icon"><mat-icon matTooltip="View Cart" [matMenuTriggerFor]="cartItemsMenu"
+        aria-hidden="false" matBadge={{cartData.length}} matBadgeColor="warn">shopping_cart</mat-icon>
     </a>
     }
   </span>

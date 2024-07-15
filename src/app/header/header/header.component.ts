@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { IProduct } from '../../products/product';
 import { CartService } from '../../cart/cart.service';
 import { CommonModule } from '@angular/common';
-
 import { AuthenticationService } from '../../authentication/auth-service/authentication.service';
 import { HeaderCartMenuComponent } from '../header-cart-menu/header-cart-menu.component';
 
@@ -34,16 +33,7 @@ export class HeaderComponent implements OnInit {
       if (data) {
         this.cartData = data;
       }
-      if (this.cartData.length > 0) {
-        this.cartTotalAmount = this.cartService.calculateCartTotal(this.cartData);
-      }
     });
-  }
-
-  public removeCartItem(id: number){
-    this.cartService.removeFromCart(id);
-    this.initializeCartData();
-
   }
 
   public logout(): void {
