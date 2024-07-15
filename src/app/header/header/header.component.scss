@@ -17,6 +17,9 @@
 
 .mat-toolbar {
   background-color: #2596be;
+  position: fixed;
+  top: 0;
+  z-index: 2;
 }
 
 .header-icon {
@@ -28,12 +31,12 @@
   display: flex;
 }
 
-.cart-item-delete-button{
+.cart-item-delete-button {
   margin-left: auto;
   margin-top: 1rem;
 }
 
-.cart-item-image{
+.cart-item-image {
   padding: 4px;
 }
 
@@ -50,7 +53,8 @@ p {
 }
 
 .scrollable-menu {
-  max-height: 200px;  /* Adjust the height as needed */
+  max-height: 200px;
+  /* Adjust the height as needed */
   overflow-y: auto;
 }
 
@@ -58,7 +62,7 @@ p {
   margin-left: 1rem;
 }
 
-#open-cart-button{
+#open-cart-button {
   display: flex;
   justify-content: center;
   align-items: center;
