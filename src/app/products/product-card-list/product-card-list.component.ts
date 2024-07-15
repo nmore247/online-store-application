@@ -1,27 +1,34 @@
 import { Component, Input } from '@angular/core';
-import { IProduct } from '../products/product';
-import { materialModules } from '../material-module';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { CartService } from '../cart/cart.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CartService } from '../../cart/cart.service';
+import { materialModules } from '../../material-module';
+import { IProduct } from '../product';
 
 @Component({
-  selector: 'app-card-layout',
+  selector: 'product-card-list',
   standalone: true,
   imports: [materialModules, CommonModule, RouterModule],
-  templateUrl: './card-layout.component.html',
-  styleUrl: './card-layout.component.scss',
+  templateUrl: './product-card-list.component.html',
+  styleUrl: './product-card-list.component.scss',
 })
-export class CardLayoutComponent {
+export class ProductCardListComponent {
+
   @Input() products!: IProduct[];
 
+  public isLiked = false;
+  
   public product!: IProduct;
 
   constructor(
     private cartService: CartService,
     private snackBar: MatSnackBar
-  ) {}
+  ) { }
+
+  public toggleLike() {
+    this.isLiked = !this.isLiked;
+  }
 
   public addToCart(id: number) {
     const cartProduct = this.products.filter((product) => id == product.id);

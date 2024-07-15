@@ -1,0 +1,25 @@
+<div class="card-container">
+  @if(products){ @for(product of products; track product.id){
+  <mat-card class="product-card">
+    <img mat-card-image src="{{ product.image }}" alt="Product Image" />
+    <mat-card-content>
+      <mat-card-title class="product-title" matTooltip="{{ product.title }}" [routerLink]="['/products', product.id]">{{
+        product.title.slice(0, 15) }}...</mat-card-title>
+      <p mat-card-subtitle>{{ product.category.toUpperCase() }}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <span id="card-price">{{ product.price | currency : "EUR" : "symbol" }}</span>
+      <div class="card-actions">
+        <button mat-icon-button class="card-button" (click)="addToCart(product.id)"  matTooltip="Add to Cart"><mat-icon>add_shopping_cart</mat-icon></button>
+        <button class="fav-icon" mat-icon-button (click)="toggleLike()" matTooltip="Mark as Favorite" [color]="isLiked ? 'warn' : ''">
+          <mat-icon>{{ isLiked ? 'favorite' : 'favorite_border' }}</mat-icon>
+        </button>
+        <button mat-icon-button class="card-button" matTooltip="Share"><mat-icon>share</mat-icon></button>
+      </div>
+    </mat-card-actions>
+
+  </mat-card>
+  } 
+  }
+</div>

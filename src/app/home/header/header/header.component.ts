@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { materialModules } from '../../material-module';
-import { RouterModule } from '@angular/router';
-import { IProduct } from '../../products/product';
-import { CartService } from '../../cart/cart.service';
 import { CommonModule } from '@angular/common';
-import { AuthenticationService } from '../../authentication/auth-service/authentication.service';
 import { HeaderCartMenuComponent } from '../header-cart-menu/header-cart-menu.component';
+import { RouterModule } from '@angular/router';
+import { AuthenticationService } from '../../../authentication/auth-service/authentication.service';
+import { CartService } from '../../../cart/cart.service';
+import { materialModules } from '../../../material-module';
+import { IProduct } from '../../../products/product';
 
 @Component({
   selector: 'app-header',

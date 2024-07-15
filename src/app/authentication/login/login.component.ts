@@ -25,7 +25,6 @@ export class LoginComponent {
   public form = this.formBuilder.nonNullable.group({
     email: ['', Validators.required],
     password: ['', Validators.required],
-    username: ['john'],
   });
 
   onSubmit(): void {
