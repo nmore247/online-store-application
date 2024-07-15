@@ -27,26 +27,21 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.productService.getSingleProduct(Number(id));
-    this.productService._selectedProduct$.subscribe((data) => {
-      this.product = data;
-    });
-    this.fetchAllProducts();
+    this.getCurrentProduct();
+    //this.fetchAllProducts();
   }
 
-  public addToCart(id: number) {
-    const cartProduct = this.products.filter((product) => id == product.id);
-    this.cartService.addToCart(cartProduct[0]);
+  public addToCart() {
+    this.getCurrentProduct()
+    this.cartService.addToCart(this.product);
     this.snackBar.open('Item Added To Cart!', '', {
       duration: 1000,
     });
   }
 
-  private fetchAllProducts() {
-    this.productService.fetchAllProducts();
-    this.productService._productsList$.subscribe((data) => {
-      if (data) {
-        this.products = data;
-      }
+  private getCurrentProduct(){
+    this.productService._selectedProduct$.subscribe((data) => {
+      this.product = data;
     });
   }
 }

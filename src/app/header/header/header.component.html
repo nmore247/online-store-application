@@ -32,7 +32,7 @@
         <p> {{ cartItem.price | currency:'EUR':'symbol' }}</p>
       </div>
       <div id="item-delete">
-        <button class="cart-item-delete-button" mat-icon-button color="warn">
+        <button class="cart-item-delete-button" mat-icon-button color="warn" (click)="removeCartItem(cartItem.id)">
           <mat-icon>delete_forever</mat-icon>
         </button>
       </div>

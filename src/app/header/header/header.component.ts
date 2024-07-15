@@ -39,7 +39,11 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  public removeCartItem(id: number){
+    this.cartService.removeFromCart(id);
+    this.initializeCartData();
 
+  }
 
   public logout(): void {
     localStorage.setItem('token', '');
