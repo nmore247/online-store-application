@@ -1,30 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { materialModules } from '../../material-module';
-import { RouterModule } from '@angular/router';
-import { IProduct } from '../../products/product';
-import { CartService } from '../../cart/cart.service';
 import { CommonModule } from '@angular/common';
-
+import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { materialModules } from '../../material-module';
+import { IProduct } from '../../products/product';
 import { AuthenticationService } from '../../authentication/auth-service/authentication.service';
-import { HeaderCartMenuComponent } from '../header-cart-menu/header-cart-menu.component';
+import { CartService } from '../../cart/cart.service';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-header-cart-menu',
   standalone: true,
-  imports: [materialModules, RouterModule, CommonModule, HeaderCartMenuComponent],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
+  imports: [materialModules, RouterModule, CommonModule],
+  templateUrl: './header-cart-menu.component.html',
+  styleUrl: './header-cart-menu.component.scss'
 })
-export class HeaderComponent implements OnInit {
-  public products!: IProduct[];
+export class HeaderCartMenuComponent implements OnInit {
   public cartData!: IProduct[];
   public cartTotalAmount: number = 0;
-
   constructor(
     private cartService: CartService,
-    public authService: AuthenticationService
   ) { }
-
   ngOnInit(): void {
     this.initializeCartData();
   }
@@ -40,14 +34,9 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  public removeCartItem(id: number){
+  public removeCartItem(id: number) {
     this.cartService.removeFromCart(id);
     this.initializeCartData();
 
-  }
-
-  public logout(): void {
-    localStorage.setItem('token', '');
-    this.authService.currentUserSig.set(null);
   }
 }

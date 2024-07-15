@@ -1,0 +1,35 @@
+<div>
+    @if(cartData.length === 0){
+    <div class="cart-menu-text">
+        <p>Cart is Empty</p>
+    </div>
+    }
+    @if(cartData.length > 0){
+    @for(cartItem of cartData; track cartItem.id){
+
+    <button mat-menu-item>
+        <div class="cart-item">
+            <div><img class="cart-item-image" mat-card-sm-image src="{{ cartItem.image }}" /></div>
+            <div class="spacer">
+                <p>{{ cartItem.title }}</p>
+                <p> {{ cartItem.price | currency:'EUR':'symbol' }}</p>
+            </div>
+            <div id="item-delete">
+                <button class="cart-item-delete-button" mat-icon-button color="warn"
+                    (click)="removeCartItem(cartItem.id)">
+                    <mat-icon>delete_forever</mat-icon>
+                </button>
+            </div>
+        </div>
+    </button>
+    }
+    <div>
+        <div style="margin-left: 22px; font-weight: bold;">
+            <p>Total Amount : {{this.cartTotalAmount | currency:'EUR':'symbol'}}</p>
+        </div>
+    </div>
+    <div id="open-cart-button">
+        <button mat-raised-button color="primary" [routerLink]="['/cart']">Open Cart</button>
+    </div>
+    }
+</div>
