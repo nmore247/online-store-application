@@ -17,12 +17,8 @@
     max-height: 200px;
     min-height: 200px;
     padding: 16px;
-    object-fit: cover;
-    border-radius: 8px;
-
-    &:hover {
-      object-fit: contain;
-    }
+    object-fit: contain;
+    border-radius: 8px; 
   }
 }
 
