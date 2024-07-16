@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { materialModules } from '../../material-module';
-import { ProductListApplicationService } from '../../products/product-list-application.service';
-import { IProduct } from '../../products/product';
-import { ProductCardListComponent } from '../../products/product-card-list/product-card-list.component';
+import { materialModules } from '../material-module';
+import { IProduct } from '../products/product';
+import { ProductCardListComponent } from '../products/product-card-list/product-card-list.component';
+import { ProductListApplicationService } from '../products/product-list-application.service';
 
 
 @Component({

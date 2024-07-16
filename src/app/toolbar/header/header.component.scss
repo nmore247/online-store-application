@@ -1,0 +1,25 @@
+.title {
+  cursor: pointer;
+}
+
+.mat-toolbar {
+  background-color: #2596be;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+}
+
+button {
+  color: azure;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.user-welcome {
+  color: white;
+  font-style: italic;
+  margin-right: 8px;
+}
