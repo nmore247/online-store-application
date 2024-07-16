@@ -11,11 +11,10 @@
     <mat-card-actions>
       <span id="card-price">{{ product.price | currency : "EUR" : "symbol" }}</span>
       <div class="card-actions">
-        <button mat-icon-button class="card-button" (click)="addToCart(product.id)"  matTooltip="Add to Cart"><mat-icon>add_shopping_cart</mat-icon></button>
+        <button mat-mini-fab class="card-button" (click)="addToCart(product.id)"  matTooltip="Add to Cart"><mat-icon>add_shopping_cart</mat-icon></button>
         <button class="fav-icon" mat-icon-button (click)="toggleLike()" matTooltip="Mark as Favorite" [color]="isLiked ? 'warn' : ''">
           <mat-icon>{{ isLiked ? 'favorite' : 'favorite_border' }}</mat-icon>
         </button>
-        <button mat-icon-button class="card-button" matTooltip="Share"><mat-icon>share</mat-icon></button>
       </div>
     </mat-card-actions>
 

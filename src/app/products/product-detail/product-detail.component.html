@@ -7,7 +7,8 @@
   <div style="padding: 1rem;">
     <p class="description" >{{ product.description }}</p>
     <h2><p>Price : {{ product.price | currency : "EUR" : "symbol" }}</p></h2>
-    <button color="warn" mat-raised-button (click)="addToCart()">Add to Cart</button>
+    <button color="warn" mat-button (click)="addToCart()"><mat-icon>add_shopping_cart</mat-icon>Add to Cart</button>
+    <button color="primary" mat-button class="spacer"><mat-icon>share</mat-icon>Share</button>
   </div>
   }
 </div>
