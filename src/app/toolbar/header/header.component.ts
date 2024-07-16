@@ -6,6 +6,7 @@ import { CartService } from '../../cart/cart.service';
 import { materialModules } from '../../material-module';
 import { IProduct } from '../../products/product';
 import { HeaderCartMenuComponent } from '../header-cart-menu/header-cart-menu.component';
+import { SideBarService } from './sidebar.service';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    public authService: AuthenticationService
+    public authService: AuthenticationService,
+    private sideBarService: SideBarService
   ) { }
 
   ngOnInit(): void {
@@ -40,5 +42,10 @@ export class HeaderComponent implements OnInit {
   public logout(): void {
     localStorage.setItem('token', '');
     this.authService.currentUserSig.set(null);
+  }
+
+  public toggleSideBar() {
+    this.sideBarService.toggleSideNav();
+
   }
 }

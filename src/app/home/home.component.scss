@@ -1,14 +1,24 @@
-.content {
-  padding: 1rem;
-}
-
-.filter {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  margin-left: 6px;
-}
-
 .sub-title {
   margin-top: 16px;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  padding: 16px;
+  max-width: 250px;
+}
+
+mat-sidenav-content {
+  overflow: hidden; /* Prevent double scroll bars */
+}
+
+/* styles.css */
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: auto;
 }
