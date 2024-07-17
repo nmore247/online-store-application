@@ -1,16 +1,15 @@
-<div style="padding: 1rem;">
-  <a href="" [routerLink]="['/home']">
-    <h1>Continue Shopping</h1>
-  </a>
-</div>
+@if(cartData.length === 0){
+<mat-card id="continue-shopping">
+  <img mat-card-image src="../../../assets/images/empty-cart.png" alt="" width="100%" height="100%">
+  <button style="border-radius: 1rem;" [routerLink]="['/home']" mat-raised-button color="primary">Return to
+    Shop</button>
+</mat-card>
+}
 <div class="cart-container">
+  <!-- cart items list -->
   <div class="order-list">
-    @if(cartData.length === 0){
-    <h2>Your Cart is Empty!</h2>
-    }
     @if(cartData.length > 0){
     @for(product of cartData; track product.id){
-
     <mat-card class="card-spacer">
       <ul>
         <li>
@@ -28,9 +27,17 @@
         </li>
       </ul>
     </mat-card>
+   
     }
+    <div style="display: flex; justify-content: space-between;">
+      <p><button mat-raised-button id="empty-cart" (click)="emptyCart()">Empty Cart</button></p>
+      <p><button mat-raised-button id="continue-shopping-button" [routerLink]="['/home']">Continue Shopping</button></p>
+    </div>
+    
     }
   </div>
+  <!-- order summary -->
+  @if(cartData.length > 0){
   <div class="order-summary">
     <mat-card>
       <mat-card-header>
@@ -41,10 +48,11 @@
         <h3>Total Items: {{ cartData.length }}</h3>
         <h3>Total Price : {{this.cartTotalAmount | currency:'EUR':'symbol'}}</h3>
         <div class="summary-buttons">
-          <button mat-raised-button color="primary">Place Order</button>
-          <button class="spacer" mat-raised-button color="warn" (click)="emptyCart()">Empty Cart</button>
+          <p><button mat-raised-button id="place-order">Place Order</button></p>
         </div>
       </div>
     </mat-card>
   </div>
+  }
+
 </div>

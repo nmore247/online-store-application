@@ -11,6 +11,7 @@
     <p>
       {{product.description}}
     </p>
+    <hr>
     <div class="product-info">
       <p>Price : {{ product.price | currency : "EUR" : "symbol" }}</p>
       <p>Reviews: {{product.rating.count}}</p>

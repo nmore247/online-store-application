@@ -6,20 +6,22 @@
 }
 
 .login-card {
-  min-width: 400px;
-  max-width: 400px;
+  min-width: 00px;
   padding: 1rem;
   place-items: center;
   box-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
+  
 }
 
-.spacer {
-  margin-bottom: 1rem;
+@media (max-width: 600px) {
+  .login-card {
+    margin: 2rem 2rem 2rem 2rem;
+    min-width: 300px;
+  }
 }
 
 mat-form-field {
-  width: 100%;
-  min-width: 350px;
+  min-width: 100%;
 }
 
 mat-card-title,
@@ -31,4 +33,5 @@ mat-card-content {
 .button {
   display: flex;
   justify-content: center;
+  align-items: center;
 }

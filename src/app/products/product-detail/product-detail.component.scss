@@ -3,6 +3,8 @@
   max-height: fit-content;
   margin: auto;
   margin-top: 5rem;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
+  background: linear-gradient(to bottom, #44c6f5, #d3dbec);
 }
 
 @media (max-width: 600px) {
@@ -16,9 +18,10 @@ mat-card-subtitle {
 }
 
 img {
-  max-width: 50%;
-  height: auto;
+  width: 50%;
+  height: 300px;
   margin: auto;
+  border-radius: 8px;
 }
 
 mat-card-content {

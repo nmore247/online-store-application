@@ -3,6 +3,7 @@
         <div class="sub-title">
             <h3>Categories</h3>
         </div>
+        <hr>
         @for(category of categories; track category){
         <mat-checkbox color="primary"
             (change)="onCategoryChange(category, $event.checked)">{{category.toUpperCase()}}</mat-checkbox>

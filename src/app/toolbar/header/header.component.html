@@ -1,18 +1,21 @@
 <mat-toolbar>
-  <button (click)="toggleSideBar()" mat-icon-button>
-      <mat-icon>menu</mat-icon>
+  <button id="sidebar-toggle" (click)="toggleSideBar()" mat-icon-button>
+    <mat-icon>menu</mat-icon>
   </button>
-  <span class="title" [routerLink]="['/home']"><img src="../../../assets/images/shopping-logo-svgrepo-com.svg" alt=""
-          height="40px" width="80px"></span>
+  <span id="logo" [routerLink]="['/home']"><img src="../../../assets/images/shopping-logo-svgrepo-com.svg" alt=""
+      height="40px" width="80px">
+  </span>
+  <span id="title">EKart</span>
   <span class="example-spacer"></span>
   @if(authService.currentUserSig() === null || authService.currentUserSig() === undefined){
-  <button mat-icon-button matTooltip="Login" [routerLink]="['/login']"><mat-icon>account_circle</mat-icon></button>
+  <button id="login" mat-icon-button matTooltip="Login"
+    [routerLink]="['/login']"><mat-icon>account_circle</mat-icon></button>
   }
   @if(authService.currentUserSig()){
   <span class="user-welcome">Hi {{ authService.currentUserSig()?.username?.toLocaleUpperCase() }} !</span>
   <button mat-icon-button (click)="logout()"><mat-icon matTooltip="Logout">logout</mat-icon></button>
   <button mat-icon-button><mat-icon matTooltip="View Cart" [matMenuTriggerFor]="cartItemsMenu" aria-hidden="false"
-          matBadge={{cartData.length}} matBadgeColor="warn">shopping_cart</mat-icon>
+      matBadge={{cartData.length}} matBadgeColor="warn">shopping_cart</mat-icon>
   </button>
   }
 </mat-toolbar>
