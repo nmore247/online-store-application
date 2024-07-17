@@ -11,14 +11,7 @@
   max-width: 250px;
 }
 
-mat-sidenav-content {
-  overflow: hidden; /* Prevent double scroll bars */
+.sidenav-content {
+  height: 100%;
 }
 
-/* styles.css */
-.content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  overflow: auto;
-}

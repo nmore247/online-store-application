@@ -1,5 +1,4 @@
-<!-- app.component.html -->
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" fullscreen>
     <mat-sidenav class="sidenav" #sidenav mode="over" opened="false">
         <div class="sub-title">
             <h3>Categories</h3>
@@ -9,10 +8,7 @@
             (change)="onCategoryChange(category, $event.checked)">{{category.toUpperCase()}}</mat-checkbox>
         }
     </mat-sidenav>
-    <mat-sidenav-content>
-        <div class="content">
-            <product-card-list [products]="this.filterItems()"></product-card-list>
-        </div>
-       
+    <mat-sidenav-content class="sidenav-content">
+        <product-card-list [products]="this.filterItems()"></product-card-list>
     </mat-sidenav-content>
 </mat-sidenav-container>

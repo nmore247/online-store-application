@@ -5,12 +5,13 @@ import { ProductCardListComponent } from '../products/product-card-list/product-
 import { ProductListApplicationService } from '../products/product-list-application.service';
 import { SideBarService } from '../toolbar/header/sidebar.service';
 import { MatSidenav } from '@angular/material/sidenav';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [materialModules, ProductCardListComponent],
+  imports: [materialModules, CommonModule, ProductCardListComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -21,10 +22,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   @ViewChild('sidenav') public sidenav!: MatSidenav;
 
-  constructor(private productService: ProductListApplicationService, private sideBarService: SideBarService) { }
+
+  constructor(
+    private productService: ProductListApplicationService, 
+    private sideBarService: SideBarService,
+  ) { }
   
 
   ngOnInit() {
+    
+    
     this.fetchAllProducts();
     this.getAllCategories();
   }
