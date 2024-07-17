@@ -1,0 +1,26 @@
+<mat-toolbar>
+  <button id="sidebar-toggle" (click)="toggleSideBar()" mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span id="logo" [routerLink]="['/home']"><img src="../../../assets/images/shopping-logo-svgrepo-com.svg" alt=""
+      height="40px" width="80px">
+  </span>
+  <span class="example-spacer"></span>
+  @if(authService.currentUserSig() === null || authService.currentUserSig() === undefined){
+  <button id="login" mat-icon-button matTooltip="Login"
+    [routerLink]="['/login']"><mat-icon>account_circle</mat-icon></button>
+  }
+  @if(authService.currentUserSig()){
+  <span class="user-welcome">Hi {{ authService.currentUserSig()?.username?.toLocaleUpperCase() }} !</span>
+  <button mat-icon-button (click)="logout()"><mat-icon matTooltip="Logout">logout</mat-icon></button>
+  <button mat-icon-button><mat-icon matTooltip="View Cart" [matMenuTriggerFor]="cartItemsMenu" aria-hidden="false"
+      matBadge={{cartData.length}} matBadgeColor="warn">shopping_cart</mat-icon>
+  </button>
+  }
+</mat-toolbar>
+
+
+<!-- cart menu -->
+<mat-menu #cartItemsMenu="matMenu" yPosition="below" class="scrollable-menu">
+  <app-header-cart-menu></app-header-cart-menu>
+</mat-menu>

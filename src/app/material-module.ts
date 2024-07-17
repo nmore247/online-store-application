@@ -14,6 +14,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
+
 export const materialModules = [
   MatCommonModule,
   MatToolbarModule,
@@ -30,5 +31,6 @@ export const materialModules = [
   MatBadgeModule,
   MatSnackBarModule,
   MatListModule,
-  MatMenuModule
+  MatMenuModule,
+  MatInputModule
 ];

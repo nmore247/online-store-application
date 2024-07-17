@@ -1,0 +1,29 @@
+@if(product){
+<mat-card class="product-card">
+  <mat-card-header>
+    <mat-card-title>{{product.title}}</mat-card-title>
+    <mat-card-subtitle>{{product.category.toUpperCase()}}</mat-card-subtitle>
+    <br>
+  </mat-card-header>
+  <img mat-card-image [src]="product.image" alt="{{product.title}}">
+  <hr>
+  <mat-card-content>
+    <p>
+      {{product.description}}
+    </p>
+    <hr>
+    <div class="product-info">
+      <p>Price : {{ product.price | currency : "EUR" : "symbol" }}</p>
+      <p>Reviews: {{product.rating.count}}</p>
+      <p>Rating: {{product.rating.rate}}</p>  
+    </div>
+  <br>
+  </mat-card-content>
+  <mat-card-actions class="product-info">
+    <button color="warn" mat-button (click)="addToCart()"><mat-icon>add_shopping_cart</mat-icon>Add to Cart</button>
+    <button color="primary" mat-button class="spacer"><mat-icon>share</mat-icon>Share</button>
+  </mat-card-actions>
+</mat-card>
+}
+
+

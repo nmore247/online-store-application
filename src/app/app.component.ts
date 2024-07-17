@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './toolbar/header/header.component';
+import { SideBarService } from './toolbar/header/sidebar.service';
 
-import { FooterComponent } from './footer/footer/footer.component';
-import { HeaderComponent } from './header/header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +15,9 @@ import { HeaderComponent } from './header/header/header.component';
     FormsModule,
     ReactiveFormsModule,
     HeaderComponent,
-    FooterComponent,
     RouterModule,
-  ],
+  ], 
+  providers: [SideBarService]
 })
 export class AppComponent {
   title = 'mock-store';
