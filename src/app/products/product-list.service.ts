@@ -15,11 +15,11 @@ export class ProductListService {
     return this.http.get<IProduct[]>(this.productsURL);
   }
 
-  public getProductById(id: number) {
+  public getProductById(id: number): Observable<IProduct> {
     return this.http.get<IProduct>(this.productsURL + '/' + id);
   }
 
-  public getAllCategories(){
-    return this.http.get<any>(this.productsURL + '/' + 'categories');
+  public getAllCategories(): Observable<string[]>{
+    return this.http.get<string[]>(this.productsURL + '/' + 'categories');
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthenticationService } from '../../authentication/auth-service/authentication.service';
 import { CartService } from '../../cart/cart.service';
 import { materialModules } from '../../material-module';
@@ -24,7 +24,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private cartService: CartService,
     public authService: AuthenticationService,
-    private sideBarService: SideBarService
+    private sideBarService: SideBarService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -42,6 +43,7 @@ export class HeaderComponent implements OnInit {
   public logout(): void {
     localStorage.setItem('token', '');
     this.authService.currentUserSig.set(null);
+    this.router.navigate(['/login']);
   }
 
   public toggleSideBar() {

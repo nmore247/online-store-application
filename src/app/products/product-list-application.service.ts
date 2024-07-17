@@ -15,7 +15,7 @@ export class ProductListApplicationService {
   private selectedProduct$ = new BehaviorSubject<IProduct>(null!);
   public _selectedProduct$ = this.selectedProduct$.asObservable();
 
-  private allCategories$ = new BehaviorSubject([]);
+  private allCategories$ = new BehaviorSubject<string[]>([]);
   public _allCategories$ = this.allCategories$.asObservable();
 
 

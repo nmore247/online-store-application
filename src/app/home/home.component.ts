@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { materialModules } from '../material-module';
 import { IProduct } from '../products/product';
 import { ProductCardListComponent } from '../products/product-card-list/product-card-list.component';
@@ -6,6 +6,7 @@ import { ProductListApplicationService } from '../products/product-list-applicat
 import { SideBarService } from '../toolbar/header/sidebar.service';
 import { MatSidenav } from '@angular/material/sidenav';
 import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -15,23 +16,24 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   public products!: IProduct[];
   public categories!: string[];
   public selectedCategories: string[] = [];
 
   @ViewChild('sidenav') public sidenav!: MatSidenav;
 
+  private productsSubscription!: Subscription;
+  private categorySubscription!: Subscription;
 
   constructor(
-    private productService: ProductListApplicationService, 
+    private productService: ProductListApplicationService,
     private sideBarService: SideBarService,
   ) { }
-  
+
+
 
   ngOnInit() {
-    
-    
     this.fetchAllProducts();
     this.getAllCategories();
   }
@@ -46,7 +48,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  
+
   public filterItems() {
     if (this.selectedCategories.length === 0) {
       return this.products;
@@ -68,7 +70,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   private getAllCategories() {
     this.productService.getAllCategories();
-    this.productService._allCategories$.subscribe((data) => {
+    this.categorySubscription = this.productService._allCategories$.subscribe((data) => {
       if (data) {
         this.categories = data;
       }
@@ -77,10 +79,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   private fetchAllProducts() {
     this.productService.fetchAllProducts();
-    this.productService._productsList$.subscribe((data) => {
+    this.productsSubscription = this.productService._productsList$.subscribe((data) => {
       if (data) {
         this.products = data;
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.productsSubscription) {
+      this.productsSubscription.unsubscribe();
+    }
+    if(this.categorySubscription){
+      this.categorySubscription.unsubscribe();
+    }
+
   }
 }
