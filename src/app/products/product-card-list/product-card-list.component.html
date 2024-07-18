@@ -12,8 +12,8 @@
       <span id="card-price">{{ product.price | currency : "EUR" : "symbol" }}</span>
       <div class="card-actions">
         <button mat-mini-fab class="card-button" (click)="addToCart(product.id)"  matTooltip="Add to Cart"><mat-icon>add_shopping_cart</mat-icon></button>
-        <button class="fav-icon" mat-icon-button (click)="toggleLike()" matTooltip="Mark as Favorite" [color]="isLiked ? 'warn' : ''">
-          <mat-icon>{{ isLiked ? 'favorite' : 'favorite_border' }}</mat-icon>
+        <button class="fav-icon" mat-icon-button (click)="toggleFavorite(product)" matTooltip="Mark as Favorite" [color]="product.isFavorite ? 'warn' : ''">
+          <mat-icon>{{ product.isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
         </button>
       </div>
     </mat-card-actions>

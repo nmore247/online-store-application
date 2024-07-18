@@ -16,9 +16,6 @@ import { IProduct } from '../product';
 export class ProductCardListComponent {
 
   @Input() products!: IProduct[];
-
-  public isLiked = false;
-  
   public product!: IProduct;
 
   constructor(
@@ -26,8 +23,8 @@ export class ProductCardListComponent {
     private snackBar: MatSnackBar
   ) { }
 
-  public toggleLike() {
-    this.isLiked = !this.isLiked;
+  public toggleFavorite(product: IProduct): void {
+    product.isFavorite = !product.isFavorite;
   }
 
   public addToCart(id: number) {
