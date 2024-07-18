@@ -7,8 +7,9 @@ export interface IProduct {
     image: string,
     rating: IRating,
 
-    // mark as favorite
+    // additional properties
     isFavorite?: boolean
+    quantity?: number
 }
 
 interface IRating {

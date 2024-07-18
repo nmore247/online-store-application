@@ -13,13 +13,13 @@ export class ProductListService {
 
   public getProducts(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(this.productsURL).pipe(
-      map(products => products.map(product => ({ ...product, isFavorite: false } as IProduct)))
+      map(products => products.map(product => ({ ...product, isFavorite: false, quantity: 0 } as IProduct)))
     );
   }
 
   public getProductById(id: number): Observable<IProduct> {
     return this.http.get<IProduct>(`${this.productsURL}/${id}`).pipe(
-      map(product => ({ ...product, isFavorite: false } as IProduct))
+      map(product => ({ ...product, isFavorite: false, quantity: 0 } as IProduct))
     );
   }
 
