@@ -6,15 +6,20 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class CartService {
-  constructor() {}
-  private cartItems! : IProduct[];
+  constructor() { }
+
+  private cartItems!: IProduct[];
   private cartContent$ = new BehaviorSubject<IProduct[]>([]);
   public _cartContent$ = this.cartContent$.asObservable();
 
 
   public addToCart(product: IProduct) {
     this.cartItems = this.cartContent$.value;
-    this.cartItems.push(product);
+    if (this.cartItems.includes(product)) {
+      product.quantity! += 1;
+    } else {
+      this.cartItems.push(product);
+    }
     this.cartContent$.next(this.cartContent$.value);
   }
 
@@ -37,10 +42,14 @@ export class CartService {
   public calculateCartTotal(productList: IProduct[]): number {
     return parseFloat(
       productList
-        .map((data) => data.price)
+        .map((data) => (data.price) * data.quantity!)
         .reduce((a, b) => a + b)
         .toFixed(2)
     );
   }
-  
+
+  public calculateTotalCartItems(productList: IProduct[]): number {
+    return productList.map(data => data.quantity).reduce((a, b) => a! + b!)!
+  }
+
 }

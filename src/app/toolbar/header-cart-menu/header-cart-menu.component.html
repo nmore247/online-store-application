@@ -12,7 +12,8 @@
             <div><img class="cart-item-image" mat-card-sm-image src="{{ cartItem.image }}" /></div>
             <div class="spacer">
                 <p>{{ cartItem.title }}</p>
-                <p> {{ cartItem.price | currency:'EUR':'symbol' }}</p>
+                <p> Quantity: {{cartItem.quantity}}</p>
+                <p>Unit Price: {{ cartItem.price | currency:'EUR':'symbol' }}</p>
             </div>
             <div id="item-delete">
                 <button class="cart-item-delete-button" mat-icon-button color="warn"

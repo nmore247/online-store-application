@@ -17,7 +17,9 @@
             <img class="cart-item-image" mat-card-sm-image src="{{ product.image }}" />
             <div class="spacer">
               <h3>{{ product.title }}</h3>
-              <h3> {{ product.price | currency:'EUR':'symbol' }}</h3>
+              <h4>Quantity: {{ product.quantity! }}</h4>
+              <h4>Unit Price: {{ product.price | currency:'EUR':'symbol' }}</h4>
+              <h4>Total Price: {{ (product.price * product.quantity!) | currency:'EUR':'symbol' }}</h4>
             </div>
             <button class="cart-item-delete-button" mat-icon-button color="warn" matTooltip="Remove Item"
               (click)="removeCartItem(product.id)">
@@ -45,8 +47,8 @@
       </mat-card-header>
       <mat-divider></mat-divider>
       <div class="order">
-        <h3>Total Items: {{ cartData.length }}</h3>
-        <h3>Total Price : {{this.cartTotalAmount | currency:'EUR':'symbol'}}</h3>
+        <h3>Total Items: {{ cartTotalItems }}</h3>
+        <h3>Total Price : {{cartTotalAmount | currency:'EUR':'symbol'}}</h3>
         <div class="summary-buttons">
           <p><button mat-raised-button id="place-order">Place Order</button></p>
         </div>

@@ -17,6 +17,7 @@ import { IProduct } from '../../products/product';
 export class HeaderCartMenuComponent implements OnInit {
   public cartData!: IProduct[];
   public cartTotalAmount: number = 0;
+  
   constructor(
     private cartService: CartService,
   ) { }

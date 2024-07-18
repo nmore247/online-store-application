@@ -15,7 +15,7 @@
   <button mat-icon-button (click)="logout()"><mat-icon matTooltip="Logout">logout</mat-icon></button>
   }
   <button mat-icon-button><mat-icon matTooltip="View Cart" [matMenuTriggerFor]="cartItemsMenu" aria-hidden="false"
-    matBadge={{cartData.length}} matBadgeColor="warn">shopping_cart</mat-icon>
+    matBadge={{cartTotalItems}} matBadgeColor="warn">shopping_cart</mat-icon>
 </button>
 </mat-toolbar>
 

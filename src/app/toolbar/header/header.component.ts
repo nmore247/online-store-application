@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
   public products!: IProduct[];
   public cartData!: IProduct[];
   public cartTotalAmount: number = 0;
+  public cartTotalItems: number = 0;
 
   constructor(
     private cartService: CartService,
@@ -36,6 +37,9 @@ export class HeaderComponent implements OnInit {
     this.cartService._cartContent$.subscribe((data) => {
       if (data) {
         this.cartData = data;
+      }
+      if (this.cartData.length > 0) {
+        this.cartTotalItems = this.cartService.calculateTotalCartItems(this.cartData);
       }
     });
   }
