@@ -1,6 +1,7 @@
 .product-card {
   max-width: 600px;
   max-height: fit-content;
+  word-wrap: break-word;
   margin: auto;
   margin-top: 5rem;
   box-shadow: 0 0 15px rgba(0, 56, 116, 0.6);
@@ -67,4 +68,10 @@ mat-card-content {
 .add-info {
   font-size: 1rem;
   font-style: italic;
+}
+
+#rating {
+  position: relative;
+  top: 4px;
+  color: rgb(230, 195, 0);
 }

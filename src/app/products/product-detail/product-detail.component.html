@@ -12,10 +12,18 @@
     <hr>
     <div class="product-price">
       <p style="font-size: 2rem;">{{ product.price | currency : "EUR" : "symbol" }}</p>
-    </div>  
-      <span class="add-info">Reviews: {{product.rating.count}}</span>
-      <span class="add-info" style="margin-left: 2rem;">Rating: {{product.rating.rate}} <mat-icon style="line-height: 1.9rem;">star_rate</mat-icon></span> 
-      <p style="margin-top: 1rem;"><button color="warn" mat-raised-button (click)="addToCart()"><mat-icon>add_shopping_cart</mat-icon>Add to Cart</button></p>
+    </div>
+    <p class="add-info">Reviews: {{product.rating.count}}</p>
+    <p class="add-info">Rating: {{product.rating.rate}}
+      @for(star of productStars; track star){
+      <mat-icon id="rating">star_rate</mat-icon>
+      }
+      @if(product.rating.rate % 1 !== 0){
+        <mat-icon id="rating">star_half</mat-icon>
+      }
+    </p>
+    <p style="margin-top: 1rem;"><button color="warn" mat-raised-button
+        (click)="addToCart()"><mat-icon>add_shopping_cart</mat-icon>Add to Cart</button></p>
   </div>
-</mat-card> 
+</mat-card>
 }
