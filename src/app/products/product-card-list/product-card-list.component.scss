@@ -57,6 +57,9 @@
 
 .product-title {
   font-size: medium;
+  &:hover {
+    color: orangered;
+  }
 }
 
 .fav-icon {
