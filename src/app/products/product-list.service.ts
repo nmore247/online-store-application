@@ -24,6 +24,6 @@ export class ProductListService {
   }
 
   public getAllCategories(): Observable<string[]> {
-    return this.http.get<string[]>(this.productsURL + '/' + 'categories');
+    return this.http.get<string[]>(`${this.productsURL}/categories`);
   }
 }

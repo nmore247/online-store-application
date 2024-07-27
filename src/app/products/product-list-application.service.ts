@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ProductListService } from './product-list.service';
 import { IProduct } from './product';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductListApplicationService {
-  constructor(private productService: ProductListService) {}
+  constructor(private productService: ProductListService) { }
 
   private productsList$ = new BehaviorSubject<IProduct[]>(null!);
   public _productsList$ = this.productsList$.asObservable();
@@ -35,9 +35,9 @@ export class ProductListApplicationService {
     });
   }
 
-  public getAllCategories(){
-    this.productService.getAllCategories().subscribe(data=> {
-      if(data){
+  public getAllCategories() {
+    this.productService.getAllCategories().subscribe(data => {
+      if (data) {
         this.allCategories$.next(data)
       }
     })

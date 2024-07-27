@@ -43,13 +43,13 @@ export class CartService {
     return parseFloat(
       productList
         .map((data) => (data.price) * data.quantity!)
-        .reduce((a, b) => a + b)
+        .reduce((acc, current) => acc + current , 0)
         .toFixed(2)
     );
   }
 
   public calculateTotalCartItems(productList: IProduct[]): number {
-    return productList.map(data => data.quantity).reduce((a, b) => a! + b!)!
+    return productList.map(data => data.quantity).reduce((acc, current) => acc! + current!, 0)!
   }
 
 }
