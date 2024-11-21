@@ -27,9 +27,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## Stack
- - Angular v17
- - Angular Material v17.3.3
- - Typescript v5.3.2
+ - Angular v18
+ - Angular Material v18.1.0
+ - Typescript v5.5.3
 
 ## Grundlegende Funktionen
  - Verwendung von Angular HTTP-Methoden zum Abrufen von Daten von https://fakestoreapi.com/ 
