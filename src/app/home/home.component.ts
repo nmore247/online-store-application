@@ -1,11 +1,10 @@
 import {Component} from '@angular/core';
 import {IProduct} from '../products/product';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
-import {RouterLink, RouterLinkActive} from "@angular/router";
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, RouterLink, RouterLinkActive, NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
