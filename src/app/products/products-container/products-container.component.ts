@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {ProductsService} from "../products.service";
-import {CurrencyPipe, NgOptimizedImage} from "@angular/common";
+import {CurrencyPipe} from "@angular/common";
 
 @Component({
   selector: 'app-products-container',
