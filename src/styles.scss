@@ -2,12 +2,24 @@
 @import "@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import "bootstrap/dist/css/bootstrap.min.css";
 
-html,
-body {
+div.card-header {
+  font-size: large;
+}
+
+div.card {
+  margin: 10px 5px 0 5px;
+  padding: 10px;
+}
+
+.table {
+  margin-top: 10px;
+}
+
+html, body {
   height: 100%;
-  margin: 0;
 }
 
 body {
+  margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
