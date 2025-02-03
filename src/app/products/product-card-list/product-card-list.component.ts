@@ -7,11 +7,10 @@ import { materialModules } from '../../material-module';
 import { IProduct } from '../product';
 
 @Component({
-  selector: 'product-card-list',
-  standalone: true,
-  imports: [materialModules, CommonModule, RouterModule],
-  templateUrl: './product-card-list.component.html',
-  styleUrl: './product-card-list.component.scss',
+    selector: 'product-card-list',
+    imports: [materialModules, CommonModule, RouterModule],
+    templateUrl: './product-card-list.component.html',
+    styleUrl: './product-card-list.component.scss'
 })
 export class ProductCardListComponent {
 

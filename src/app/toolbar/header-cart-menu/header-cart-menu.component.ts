@@ -8,11 +8,10 @@ import { IProduct } from '../../products/product';
 
 
 @Component({
-  selector: 'app-header-cart-menu',
-  standalone: true,
-  imports: [materialModules, RouterModule, CommonModule],
-  templateUrl: './header-cart-menu.component.html',
-  styleUrl: './header-cart-menu.component.scss'
+    selector: 'app-header-cart-menu',
+    imports: [materialModules, RouterModule, CommonModule],
+    templateUrl: './header-cart-menu.component.html',
+    styleUrl: './header-cart-menu.component.scss'
 })
 export class HeaderCartMenuComponent implements OnInit {
   public cartData!: IProduct[];

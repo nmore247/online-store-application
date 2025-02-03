@@ -6,18 +6,17 @@ import { SideBarService } from './toolbar/header/sidebar.service';
 
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  imports: [
-    RouterOutlet,
-    FormsModule,
-    ReactiveFormsModule,
-    HeaderComponent,
-    RouterModule,
-  ], 
-  providers: [SideBarService]
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    imports: [
+        RouterOutlet,
+        FormsModule,
+        ReactiveFormsModule,
+        HeaderComponent,
+        RouterModule,
+    ],
+    providers: [SideBarService]
 })
 export class AppComponent {
   title = 'mock-store';

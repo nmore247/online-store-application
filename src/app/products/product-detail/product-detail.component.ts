@@ -7,11 +7,10 @@ import { CommonModule } from '@angular/common';
 import { CartService } from '../../cart/cart.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
-  selector: 'app-product-detail',
-  standalone: true,
-  imports: [materialModules, CommonModule, RouterModule],
-  templateUrl: './product-detail.component.html',
-  styleUrl: './product-detail.component.scss',
+    selector: 'app-product-detail',
+    imports: [materialModules, CommonModule, RouterModule],
+    templateUrl: './product-detail.component.html',
+    styleUrl: './product-detail.component.scss'
 })
 export class ProductDetailComponent implements OnInit {
   public products!: IProduct[];

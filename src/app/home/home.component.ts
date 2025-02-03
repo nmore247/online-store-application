@@ -10,11 +10,10 @@ import { Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [materialModules, CommonModule, ProductCardListComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+    selector: 'app-home',
+    imports: [materialModules, CommonModule, ProductCardListComponent],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   public products!: IProduct[];

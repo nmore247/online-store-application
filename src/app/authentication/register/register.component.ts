@@ -8,11 +8,10 @@ import { UserInterface } from '../User';
 import { environment } from '../../environments/environment';
 
 @Component({
-  selector: 'app-register',
-  standalone: true,
-  imports: [ReactiveFormsModule, materialModules, RouterModule],
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.scss',
+    selector: 'app-register',
+    imports: [ReactiveFormsModule, materialModules, RouterModule],
+    templateUrl: './register.component.html',
+    styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
   constructor(

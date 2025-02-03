@@ -6,11 +6,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-cart',
-  standalone: true,
-  imports: [materialModules, CommonModule, RouterModule],
-  templateUrl: './cart.component.html',
-  styleUrl: './cart.component.scss',
+    selector: 'app-cart',
+    imports: [materialModules, CommonModule, RouterModule],
+    templateUrl: './cart.component.html',
+    styleUrl: './cart.component.scss'
 })
 export class CartComponent implements OnInit {
   public cartData!: IProduct[];
