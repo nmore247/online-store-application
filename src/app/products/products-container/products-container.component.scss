@@ -5,3 +5,26 @@ img {
   object-fit: contain;
   border-radius: 8px;
 }
+
+h4 {
+  cursor: pointer;
+
+  &:hover {
+    color: #0d6efd;
+  }
+}
+
+h3 {
+  padding: 10px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  transition: box-shadow 0.1s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+}
