@@ -1,4 +1,4 @@
-import {Component, computed, inject} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {CartService} from "../cart.service";
 import {CurrencyPipe} from "@angular/common";
 
