@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule, RouterOutlet} from '@angular/router';
+import {CartService} from "./cart/cart.service";
 
 @Component({
   selector: 'app-root',
@@ -17,4 +18,6 @@ import {RouterModule, RouterOutlet} from '@angular/router';
 })
 export class AppComponent {
   title = 'e-store';
+  private cartService = inject(CartService);
+  public cartItems = this.cartService.cartItems;
 }
