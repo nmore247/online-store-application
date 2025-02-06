@@ -1,0 +1,23 @@
+<div class="card border-secondary">
+  <div class="card-header text-secondary fw-bold">
+    Order Summary
+  </div>
+  <br>
+  <div class="row justify-content-around">
+    <div class="col-md-2 fw-bold">Sr.no</div>
+    <div class="col-md-2 fw-bold">Product</div>
+    <div class="col-md-2 fw-bold text-center">Price</div>
+    <div class="col-md-2 fw-bold text-center">Quantity</div>
+  </div>
+  <br>
+  @for (item of cartItems(); track item.id; let idx = $index) {
+    <div class="row justify-content-around">
+      <div class="col-md-2">{{idx + 1}}</div>
+      <div class="col-md-2">{{ item.title }}</div>
+      <div class="col-md-2 text-center">{{ item.price }}</div>
+      <div class="col-md-2 text-center">{{ item.quantity }}</div>
+    </div>
+    <br>
+  }
+
+</div>

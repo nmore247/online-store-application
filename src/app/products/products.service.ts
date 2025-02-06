@@ -1,6 +1,6 @@
 import {HttpClient} from '@angular/common/http';
-import {inject, Injectable} from '@angular/core';
-import {map} from 'rxjs';
+import {inject, Injectable, signal} from '@angular/core';
+import {map, shareReplay} from 'rxjs';
 import {IProduct} from './product';
 import {toSignal} from "@angular/core/rxjs-interop";
 
@@ -25,7 +25,8 @@ export class ProductsService {
             } as IProduct
           )
         )
-      )
+      ),
+      shareReplay(1)
     );
 
   private categories$ = this.http.get<string[]>(`${this.productsURL}/categories`);
@@ -33,5 +34,12 @@ export class ProductsService {
   public products = toSignal(this.products$, {initialValue: [] as IProduct[]});
 
   public categories = toSignal(this.categories$, {initialValue: [] as string[]});
+
+  public selectedProduct = signal<IProduct | undefined>(undefined);
+
+  public productSelected(productName: string) {
+    const foundProduct = this.products().find((p) => p.title === productName);
+    this.selectedProduct.set(foundProduct);
+  }
 
 }

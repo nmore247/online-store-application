@@ -1,55 +1,54 @@
-import { Injectable } from '@angular/core';
-import { IProduct } from '../products/product';
-import { BehaviorSubject } from 'rxjs';
+import {computed, Injectable, signal} from '@angular/core';
+import {IProduct} from '../products/product';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  constructor() { }
-
-  private cartItems!: IProduct[];
-  private cartContent$ = new BehaviorSubject<IProduct[]>([]);
-  public _cartContent$ = this.cartContent$.asObservable();
-
-
-  public addToCart(product: IProduct) {
-    this.cartItems = this.cartContent$.value;
-    if (this.cartItems.includes(product)) {
-      product.quantity! += 1;
-    } else {
-      this.cartItems.push(product);
-    }
-    this.cartContent$.next(this.cartContent$.value);
+  constructor() {
   }
 
-  public removeFromCart(id: number) {
-    this.cartItems = this.cartContent$.value;
+  public cartItems = signal<IProduct[]>([]);
+
+  // Total up the extended price for each item
+  // @ts-ignore
+  public subTotal = computed(() => this.cartItems().reduce((a, b) => a + (b.quantity! * b.price), 0));
+
+  // Delivery is free if spending more than 100,000
+  public deliveryFee = computed(() => this.subTotal() < 100000 ? 999 : 0);
+
+  // Tax could be based on shipping address zip code
+  public tax = computed(() => Math.round(this.subTotal() * 10.75) / 100);
+
+  // Total price
+  totalPrice = computed(() => this.subTotal() + this.deliveryFee() + this.tax());
+
+  //totalCartItems
+  public totalCartItems = computed(() => this.cartItems.length)
+
+  public addToCart(product: IProduct) {
+    const index = this.cartItems().findIndex(item =>
+      item.title === product.title);
+
+    if (index === -1) {
+      // Not already in the cart, so add with default quantity of 1
+      this.cartItems.update(items => [...items, product]);
+    } else {
+      product.quantity! += 1;
+    }
+  }
+
+  public removeFromCart(cartItem: IProduct) {
     if (this.cartItems.length > 0) {
-      this.cartItems = this.cartItems.filter((product) => product.id !== id);
-      this.cartContent$.next(this.cartItems);
+      this.cartItems.update(items => items.filter(item => item.title !== cartItem.title));
     }
   }
 
   public clearCart(): void {
-    this.cartItems = this.cartContent$.value;
     if (this.cartItems.length > 0) {
-      this.cartItems.length = 0;
-      this.cartContent$.next(this.cartContent$.value);
+      this.cartItems.set([]);
     }
   }
 
-  public calculateCartTotal(productList: IProduct[]): number {
-    return parseFloat(
-      productList
-        .map((data) => (data.price) * data.quantity!)
-        .reduce((acc, current) => acc + current , 0)
-        .toFixed(2)
-    );
-  }
-
-  public calculateTotalCartItems(productList: IProduct[]): number {
-    return productList.map(data => data.quantity).reduce((acc, current) => acc! + current!, 0)!
-  }
 
 }
