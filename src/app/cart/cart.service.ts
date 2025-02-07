@@ -1,5 +1,6 @@
 import {computed, Injectable, signal} from '@angular/core';
 import {Product} from "../products/product";
+import {CartItem} from "./cart-summary/cart";
 
 
 @Injectable({
@@ -9,7 +10,7 @@ export class CartService {
   constructor() {
   }
 
-  public cartItems = signal<Product[]>([]);
+  public cartItems = signal<CartItem[]>([]);
 
   // Total up the extended price for each item
   // @ts-ignore
@@ -25,19 +26,25 @@ export class CartService {
   totalPrice = computed(() => this.subTotal() + this.deliveryFee() + this.tax());
 
   public addToCart(product: Product) {
-    const index = this.cartItems().findIndex(item => item.title === product.title);
+    const index = this.cartItems().findIndex(item => item.product.title === product.title);
 
     if (index === -1) {
       // Not already in the cart, so add with default quantity of 1
-      this.cartItems.update(items => [...items, product]);
+      this.cartItems.update(items => [...items, {product, quantity: 1}]);
     } else {
-      product.quantity! += 1;
+      this.cartItems.update(items =>
+        [
+          ...items.slice(0, index),
+          {...items[index], quantity: items[index].quantity + 1},
+          ...items.slice(index + 1)
+        ]);
+
     }
   }
 
-  public removeFromCart(cartItem: Product) {
+  public removeFromCart(cartItem: CartItem) {
     if (this.cartItems().length > 0) {
-      this.cartItems.update(items => items.filter(item => item.title !== cartItem.title));
+      this.cartItems.update(items => items.filter(item => item.product.title !== cartItem.product.title));
     }
   }
 

@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, computed, inject} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule, RouterOutlet} from '@angular/router';
 import {CartService} from "./cart/cart.service";
@@ -20,4 +20,6 @@ export class AppComponent {
   title = 'e-store';
   private cartService = inject(CartService);
   public cartItems = this.cartService.cartItems;
+  public cartCount = computed(() => this.cartService.cartItems().reduce(
+    (acc, item) => acc + item.quantity, 0));
 }
