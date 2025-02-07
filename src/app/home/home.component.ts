@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {IProduct} from '../products/product';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
+import {Product} from "../products/product";
 
 @Component({
   selector: 'app-home',
@@ -9,34 +9,11 @@ import {CommonModule, NgOptimizedImage} from '@angular/common';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  public products!: IProduct[];
-  public categories!: string[];
-  public selectedCategories: string[] = [];
-
+  public products!: Product[];
 
   constructor() {
   }
 
   public title = 'Welcome to E-Store';
-
-  public filterItems() {
-    if (this.selectedCategories.length === 0) {
-      return this.products;
-    }
-    return this.products.filter((item) =>
-      this.selectedCategories.includes(item.category)
-    );
-  }
-
-  public onCategoryChange(category: string, checked: boolean) {
-    if (checked) {
-      this.selectedCategories.push(category);
-    } else {
-      this.selectedCategories = this.selectedCategories.filter(
-        (c) => c !== category
-      );
-    }
-  }
-
 
 }

@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {CartService} from "../cart.service";
 import {CurrencyPipe} from "@angular/common";
-import {IProduct} from "../../products/product";
+import {Product} from "../../products/product";
 
 @Component({
   selector: 'app-cart-list',
@@ -16,7 +16,7 @@ export class CartListComponent {
   private cartService = inject(CartService);
   public cartItems = this.cartService.cartItems;
 
-  public removeCartItem(item: IProduct) {
+  public removeCartItem(item: Product) {
     this.cartService.removeFromCart(item)
   }
 }

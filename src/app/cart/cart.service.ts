@@ -1,5 +1,6 @@
 import {computed, Injectable, signal} from '@angular/core';
-import {IProduct} from '../products/product';
+import {Product} from "../products/product";
+
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ export class CartService {
   constructor() {
   }
 
-  public cartItems = signal<IProduct[]>([]);
+  public cartItems = signal<Product[]>([]);
 
   // Total up the extended price for each item
   // @ts-ignore
@@ -23,7 +24,7 @@ export class CartService {
   // Total price
   totalPrice = computed(() => this.subTotal() + this.deliveryFee() + this.tax());
 
-  public addToCart(product: IProduct) {
+  public addToCart(product: Product) {
     const index = this.cartItems().findIndex(item => item.title === product.title);
 
     if (index === -1) {
@@ -34,7 +35,7 @@ export class CartService {
     }
   }
 
-  public removeFromCart(cartItem: IProduct) {
+  public removeFromCart(cartItem: Product) {
     if (this.cartItems().length > 0) {
       this.cartItems.update(items => items.filter(item => item.title !== cartItem.title));
     }

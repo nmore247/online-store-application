@@ -2,7 +2,7 @@ import {Component, computed, inject} from '@angular/core';
 import {ProductsService} from "../products.service";
 import {ProductCardComponent} from "../product-card/product-card.component";
 import {MatCheckbox} from "@angular/material/checkbox";
-import {IProduct} from "../product";
+import {Product} from "../product";
 
 @Component({
   selector: 'app-products-container',
@@ -32,7 +32,7 @@ export class ProductsContainerComponent {
     }
   });
 
-  public filterItems(): IProduct[] {
+  public filterItems(): Product[] {
     if (this.selectedCategories.length === 0) {
       return this.products();
     } else {
