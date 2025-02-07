@@ -1,6 +1,6 @@
 <div class="card" style="width: 18rem;">
   <div class="card-actions" style="display: flex; justify-content: space-between">
-    <button class="fav-icon" mat-icon-button matTooltip="Mark as Favorite" [color]="product.isFavorite ? 'warn' : ''">
+    <button class="fav-icon" mat-icon-button (click)="toggleFavorite(product)" matTooltip="Mark as Favorite" [color]="product.isFavorite ? 'warn' : ''">
       <mat-icon>{{ product.isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
     </button>
     <button class="fav-icon" mat-icon-button matTooltip="Preview Product" data-target="#exampleModalCenter">

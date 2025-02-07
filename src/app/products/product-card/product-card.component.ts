@@ -47,4 +47,8 @@ export class ProductCardComponent {
     this.cartService.addToCart(product)
   }
 
+  public toggleFavorite(product: IProduct): void {
+    product.isFavorite = !product.isFavorite;
+  }
+
 }
