@@ -20,12 +20,20 @@
           @for (product of products(); track product.id) {
             <div class="col">
               <div class="card" style="width: 18rem;">
+                <div class="card-actions" style="display: flex; justify-content: space-between">
+                  <button class="fav-icon" mat-icon-button matTooltip="Mark as Favorite" [color]="product.isFavorite ? 'warn' : ''">
+                    <mat-icon>{{ product.isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+                  </button>
+                  <button class="fav-icon" mat-icon-button matTooltip="Preview Product" (click)="productSelected(product.title)" data-target="#exampleModalCenter">
+                    <mat-icon>preview</mat-icon>
+                  </button>
+                </div>
                 <img src="{{ product.image }}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h4 class="card-title" matTooltip="{{product.title}}">{{ product.title.slice(0, 20) }}...</h4>
                   <p class="card-text">{{ product.price | currency : "EUR" : "symbol" }}</p>
                   <div class="card-actions" style="display: flex; justify-content: space-evenly">
-                    <select style="width: 3rem; border-radius: 0.5rem">
+                    <select style="width: 6rem; border-radius: 0.5rem">
                       @for (num of numbers; track num) {
                         <option [value]="num">{{ num }}</option>
                       }
@@ -45,7 +53,6 @@
       <span class="visually-hidden">Loading...</span>
     </div>
   }
-
 </div>
 
 

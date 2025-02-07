@@ -18,6 +18,5 @@ export class CartListComponent {
 
   public removeCartItem(item: IProduct) {
     this.cartService.removeFromCart(item)
-    console.log(this.cartService.cartItems());
   }
 }

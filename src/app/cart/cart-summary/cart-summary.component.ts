@@ -13,7 +13,6 @@ import {CurrencyPipe} from "@angular/common";
 export class CartSummaryComponent {
   private cartService = inject(CartService);
   public cartItems = this.cartService.cartItems;
-
   public subTotal = this.cartService.subTotal;
   public totalPrice = this.cartService.totalPrice;
   public deliveryFee = this.cartService.deliveryFee;

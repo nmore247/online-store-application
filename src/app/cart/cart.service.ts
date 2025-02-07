@@ -23,9 +23,6 @@ export class CartService {
   // Total price
   totalPrice = computed(() => this.subTotal() + this.deliveryFee() + this.tax());
 
-  //totalCartItems
-  public totalCartItems = computed(() => this.cartItems.length)
-
   public addToCart(product: IProduct) {
     const index = this.cartItems().findIndex(item => item.title === product.title);
 

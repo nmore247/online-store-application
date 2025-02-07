@@ -4,12 +4,17 @@ import {CurrencyPipe} from "@angular/common";
 import {MatTooltip} from "@angular/material/tooltip";
 import {CartService} from "../../cart/cart.service";
 import {IProduct} from "../product";
+import {MatIconButton} from "@angular/material/button";
+import {MatIcon} from "@angular/material/icon";
+
 
 @Component({
   selector: 'app-products-container',
   imports: [
     CurrencyPipe,
-    MatTooltip
+    MatTooltip,
+    MatIconButton,
+    MatIcon
   ],
   templateUrl: './products-container.component.html',
   styleUrl: './products-container.component.scss'
@@ -50,5 +55,14 @@ export class ProductsContainerComponent {
   public addToCart(product: IProduct) {
     this.cartService.addToCart(product)
   }
+
+  public productSelected(productName: string) {
+    if (productName) {
+      this.productsService.productSelected(productName)
+    }
+  }
+
+
+
 
 }
