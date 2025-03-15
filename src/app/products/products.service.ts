@@ -1,7 +1,6 @@
 import {HttpClient} from '@angular/common/http';
-import {inject, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {map, shareReplay} from 'rxjs';
-
 import {toSignal} from "@angular/core/rxjs-interop";
 import {Product} from "./product";
 
@@ -9,11 +8,11 @@ import {Product} from "./product";
   providedIn: 'root',
 })
 export class ProductsService {
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   private productsURL = 'https://fakestoreapi.com/products';
-  private http = inject(HttpClient);
+  //private http = inject(HttpClient);
 
   private products$ = this.http.get<Product[]>(this.productsURL)
     .pipe(
