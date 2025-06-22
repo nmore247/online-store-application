@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build started
-        run: npm run build
+        run: npm build
       - name: Build status
         run: echo "Build started..."
         
