@@ -12,7 +12,6 @@ export class ProductsService {
   }
 
   private productsURL = 'https://fakestoreapi.com/products';
-
   private products$ = this.http.get<Product[]>(this.productsURL)
     .pipe(
       map(products => products
