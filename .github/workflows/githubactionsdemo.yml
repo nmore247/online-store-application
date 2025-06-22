@@ -10,9 +10,11 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 22
       - name: install dependencies
         run: npm ci
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
       - name: run linters
         uses: wearerequired/lint-action@v2
       - name: Linters status
