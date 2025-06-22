@@ -1,0 +1,8 @@
+name: Get Lint 
+on: push
+jobs:
+  Install-the-Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Started."
+     
