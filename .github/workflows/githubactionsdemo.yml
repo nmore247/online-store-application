@@ -17,6 +17,15 @@ jobs:
         uses: wearerequired/lint-action@v2
       - name: Linters status
         run: echo "Installing.."
+  Build-Project:
+    needs: Install-the-Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build started
+        run: npm run build
+      - name: Build status
+        run: echo "Build started..."
+        
         
       
      
