@@ -5,4 +5,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Started."
+      - name: Checkout the Repo
+        uses: actions/checkout@V4
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: install dependencies
+        run: npm ci
+      - name: run linters
+        uses: wearerequired/lint-action@v2
+      - name: Linters status
+        run: echo "Installing.."
+  Build-Project:
+    needs: Install-the-Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build started
+        run: npm run build
+      - name: Build status
+        run: echo "Build started..."
+        
+        
+      
      
