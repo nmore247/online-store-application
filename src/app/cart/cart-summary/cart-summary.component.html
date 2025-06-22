@@ -1,0 +1,32 @@
+<div class="card border-secondary">
+  <div class="card-header text-secondary fw-bold">
+    Order Summary
+  </div>
+  <br>
+  @if (cartItems().length) {
+    <div class="row justify-content-around">
+      <div class="col-md-2 fw-bold">Sr.no</div>
+      <div class="col-md-2 fw-bold">Product</div>
+      <div class="col-md-2 fw-bold text-center">Unit Price</div>
+      <div class="col-md-2 fw-bold text-center">Quantity</div>
+      <div class="col-md-2 fw-bold text-center">Item Total</div>
+    </div>
+    <hr>
+    @for (item of cartItems(); track item; let idx = $index) {
+      <div class="row justify-content-around">
+        <div class="col-md-2">{{ idx + 1 }}</div>
+        <div class="col-md-2">{{ item.product.title }}</div>
+        <div class="col-md-2 text-center">{{ item.product.price }}</div>
+        <div class="col-md-2 text-center">{{ item.quantity }}</div>
+        <div class="col-md-2 text-center">{{ (item.product.price * item.quantity!) | currency:'EUR':'symbol' }}</div>
+      </div>
+      <hr>
+    }
+    <div class="row justify-content-end">
+      <div class="row-cols-4">Sub Total: {{ subTotal() | currency:'EUR':'symbol' }}</div>
+      <div class="row-cols-4">Delivery Fee: {{ deliveryFee() | currency:'EUR':'symbol' }}</div>
+      <div class="row-cols-4">Tax: {{ tax() | currency:'EUR':'symbol' }}</div>
+      <div class="row-cols-4"><h3 class="fw-bold">Order Total: {{ totalPrice() | currency:'EUR':'symbol' }}</h3></div>
+    </div>
+  }
+</div>
