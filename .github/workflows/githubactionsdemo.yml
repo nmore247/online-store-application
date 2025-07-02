@@ -24,7 +24,7 @@ jobs:
         uses: wearerequired/lint-action@v2
 
       - name: Linters status
-        run: echo "Linting complete."
+        run: echo "Linting completed."
 
   build:
     runs-on: ubuntu-latest
