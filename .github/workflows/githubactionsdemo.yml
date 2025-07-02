@@ -1,6 +1,10 @@
 name: Lint and Build
 
-on: push
+on: 
+  push:
+    branches:
+      - master
+
 
 jobs:
   lint:
